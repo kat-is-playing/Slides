@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Slide Template — 所有 Layout 範例</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Noto+Serif+TC:wght@300;400;700&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../tokens.css" />
+  <link rel="stylesheet" href="./slide.css" />
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+</head>
+<body>
+
+  <!-- ═══════════ 1. COVER（深色）═══════════ -->
+  <div class="slide-group">
+    <p class="slide-label">1 — Cover（深色）</p>
+    <div class="slide-wrap">
+      <div class="slide slide--dark cover on-dark">
+        <div class="cover__bg">
+          <span class="t-caption on-dark">背景圖片</span>
+        </div>
+        <div class="inner">
+          <div class="cover__top">
+            <span class="t-handle on-dark">@kat.is.playing</span>
+          </div>
+          <div class="cover__title-block">
+            <h1 class="t-cover-title on-dark">講座主標題放這裡</h1>
+            <p class="t-cover-sub on-dark">副標題 · 場次說明文字</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════ 2. AGENDA（淺色）═══════════ -->
+  <div class="slide-group">
+    <p class="slide-label">2 — Agenda（淺色）</p>
+    <div class="slide-wrap">
+      <div class="slide slide--light on-light">
+        <div class="inner">
+          <div class="page-header">
+            <h2 class="t-agenda-title on-light">Agenda</h2>
+          </div>
+          <ul class="agenda-list">
+            <li class="agenda-item">
+              <span class="agenda-item__num">01</span>
+              <span class="agenda-item__star">✦</span>
+              <span class="t-agenda-text on-light">開場與背景</span>
+            </li>
+            <li class="agenda-item">
+              <span class="agenda-item__num">02</span>
+              <span class="agenda-item__star">✦</span>
+              <span class="t-agenda-text on-light">核心概念介紹</span>
+            </li>
+            <li class="agenda-item">
+              <span class="agenda-item__num">03</span>
+              <span class="agenda-item__star">✦</span>
+              <span class="t-agenda-text on-light">實作練習與討論</span>
+            </li>
+            <li class="agenda-item">
+              <span class="agenda-item__num">04</span>
+              <span class="agenda-item__star">✦</span>
+              <span class="t-agenda-text on-light">案例分析</span>
+            </li>
+            <li class="agenda-item">
+              <span class="agenda-item__num">05</span>
+              <span class="agenda-item__star">✦</span>
+              <span class="t-agenda-text on-light">Q&amp;A 與總結</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════ 3. SECTION DIVIDER（深色）═══════════ -->
+  <div class="slide-group">
+    <p class="slide-label">3 — Section Divider（深色）</p>
+    <div class="slide-wrap">
+      <div class="slide slide--dark section-divider on-dark">
+        <div class="inner">
+          <div class="section-divider__row">
+            <span class="t-section-num">Part 1</span>
+            <div class="section-divider__line"></div>
+          </div>
+          <h2 class="t-section-title on-dark">章節標題放這裡</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ═══════════ 4. CARDS（淺色）═══════════ -->
+  <div class="slide-group">
+    <p class="slide-label">4 — Cards（淺色）</p>
+    <div class="slide-wrap">
+      <div class="slide slide--light on-light">
+        <div class="inner">
+          <div class="page-header">
+            <h2 class="t-page-title on-light">三個核心概念</h2>
+          </div>
+          <div class="cards-grid">
+            <div class="card on-light">
+              <i data-lucide="eye" class="card__icon on-light"></i>
+              <div class="card__content">
+                <span class="t-card-tag">覺察 Awareness</span>
+                <p class="t-card-body on-light">觀察自己的反應模式，辨識情緒觸發點與行為習慣。</p>
+              </div>
+            </div>
+            <div class="card on-light">
+              <i data-lucide="compass" class="card__icon on-light"></i>
+              <div class="card__content">
+                <span class="t-card-tag">探索 Exploration</span>
+                <p class="t-card-body on-light">對自我可能性保持好奇，嘗試不同的角色與路徑。</p>
+              </div>
+            </div>
+            <div class="card on-light">
+              <i data-lucide="flag" class="card__icon on-light"></i>
+              <div class="card__content">
+                <span class="t-card-tag">行動 Action</span>
+                <p class="t-card-body on-light">對選擇做出承諾，從最小可行步驟開始執行。</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════ 4b. CARDS（深色）═══════════ -->
+  <div class="slide-group">
+    <p class="slide-label">4 — Cards（深色）</p>
+    <div class="slide-wrap">
+      <div class="slide slide--dark on-dark">
+        <div class="inner">
+          <div class="page-header">
+            <h2 class="t-page-title on-dark">三個核心概念</h2>
+          </div>
+          <div class="cards-grid">
+            <div class="card on-dark">
+              <i data-lucide="eye" class="card__icon on-dark"></i>
+              <div class="card__content">
+                <span class="t-card-tag">覺察 Awareness</span>
+                <p class="t-card-body on-dark">觀察自己的反應模式，辨識情緒觸發點與行為習慣。</p>
+              </div>
+            </div>
+            <div class="card on-dark">
+              <i data-lucide="compass" class="card__icon on-dark"></i>
+              <div class="card__content">
+                <span class="t-card-tag">探索 Exploration</span>
+                <p class="t-card-body on-dark">對自我可能性保持好奇，嘗試不同的角色與路徑。</p>
+              </div>
+            </div>
+            <div class="card on-dark">
+              <i data-lucide="flag" class="card__icon on-dark"></i>
+              <div class="card__content">
+                <span class="t-card-tag">行動 Action</span>
+                <p class="t-card-body on-dark">對選擇做出承諾，從最小可行步驟開始執行。</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════ 4c. CARDS 2×2（淺色）═══════════ -->
+  <div class="slide-group">
+    <p class="slide-label">4 — Cards 2×2（淺色）</p>
+    <div class="slide-wrap">
+      <div class="slide slide--light on-light">
+        <div class="inner">
+          <div class="page-header">
+            <h2 class="t-page-title on-light">四個核心概念</h2>
+          </div>
+          <div class="cards-grid cards-grid--2x2">
+            <div class="card on-light">
+              <i data-lucide="eye" class="card__icon on-light"></i>
+              <div class="card__content">
+                <span class="t-card-tag">覺察 Awareness</span>
+                <p class="t-card-body on-light">觀察自己的反應模式，辨識情緒觸發點與行為習慣。</p>
+              </div>
+            </div>
+            <div class="card on-light">
+              <i data-lucide="compass" class="card__icon on-light"></i>
+              <div class="card__content">
+                <span class="t-card-tag">探索 Exploration</span>
+                <p class="t-card-body on-light">對自我可能性保持好奇，嘗試不同的角色與路徑。</p>
+              </div>
+            </div>
+            <div class="card on-light">
+              <i data-lucide="flag" class="card__icon on-light"></i>
+              <div class="card__content">
+                <span class="t-card-tag">行動 Action</span>
+                <p class="t-card-body on-light">對選擇做出承諾，從最小可行步驟開始執行。</p>
+              </div>
+            </div>
+            <div class="card on-light">
+              <i data-lucide="target" class="card__icon on-light"></i>
+              <div class="card__content">
+                <span class="t-card-tag">目標 Goal</span>
+                <p class="t-card-body on-light">設定清晰的方向，讓每個行動都有具體意義。</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════ 4d. CARDS 2×2（深色）═══════════ -->
+  <div class="slide-group">
+    <p class="slide-label">4 — Cards 2×2（深色）</p>
+    <div class="slide-wrap">
+      <div class="slide slide--dark on-dark">
+        <div class="inner">
+          <div class="page-header">
+            <h2 class="t-page-title on-dark">四個核心概念</h2>
+          </div>
+          <div class="cards-grid cards-grid--2x2">
+            <div class="card on-dark">
+              <i data-lucide="eye" class="card__icon on-dark"></i>
+              <div class="card__content">
+                <span class="t-card-tag">覺察 Awareness</span>
+                <p class="t-card-body on-dark">觀察自己的反應模式，辨識情緒觸發點與行為習慣。</p>
+              </div>
+            </div>
+            <div class="card on-dark">
+              <i data-lucide="compass" class="card__icon on-dark"></i>
+              <div class="card__content">
+                <span class="t-card-tag">探索 Exploration</span>
+                <p class="t-card-body on-dark">對自我可能性保持好奇，嘗試不同的角色與路徑。</p>
+              </div>
+            </div>
+            <div class="card on-dark">
+              <i data-lucide="flag" class="card__icon on-dark"></i>
+              <div class="card__content">
+                <span class="t-card-tag">行動 Action</span>
+                <p class="t-card-body on-dark">對選擇做出承諾，從最小可行步驟開始執行。</p>
+              </div>
+            </div>
+            <div class="card on-dark">
+              <i data-lucide="target" class="card__icon on-dark"></i>
+              <div class="card__content">
+                <span class="t-card-tag">目標 Goal</span>
+                <p class="t-card-body on-dark">設定清晰的方向，讓每個行動都有具體意義。</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════ 5. PIE CHART（淺色）═══════════ -->
+  <div class="slide-group">
+    <p class="slide-label">5 — Pie Chart（淺色）</p>
+    <div class="slide-wrap">
+      <div class="slide slide--light on-light">
+        <div class="inner">
+          <div class="page-header">
+            <h2 class="t-page-title on-light">職涯轉換的主要原因</h2>
+          </div>
+          <div class="pie-layout">
+            <div class="pie-chart-area">
+              <div class="pie-chart" style="--p1: 45%; --p2: 72%; --p3: 100%;"></div>
+            </div>
+            <div class="pie-legend">
+              <div class="pie-legend-item">
+                <div class="pie-swatch pie-swatch--1"></div>
+                <span class="pie-pct">45%</span>
+                <p class="pie-label on-light">尋求更有意義的工作</p>
+              </div>
+              <div class="pie-legend-item">
+                <div class="pie-swatch pie-swatch--2"></div>
+                <span class="pie-pct">27%</span>
+                <p class="pie-label on-light">薪資與成長空間不足</p>
+              </div>
+              <div class="pie-legend-item">
+                <div class="pie-swatch pie-swatch--3"></div>
+                <span class="pie-pct">28%</span>
+                <p class="pie-label on-light">組織文化或管理問題</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════ 5b. PIE CHART（深色）═══════════ -->
+  <div class="slide-group">
+    <p class="slide-label">5 — Pie Chart（深色）</p>
+    <div class="slide-wrap">
+      <div class="slide slide--dark on-dark">
+        <div class="inner">
+          <div class="page-header">
+            <h2 class="t-page-title on-dark">職涯轉換的主要原因</h2>
+          </div>
+          <div class="pie-layout">
+            <div class="pie-chart-area">
+              <div class="pie-chart" style="--p1: 45%; --p2: 72%; --p3: 100%;"></div>
+            </div>
+            <div class="pie-legend">
+              <div class="pie-legend-item">
+                <div class="pie-swatch pie-swatch--1"></div>
+                <span class="pie-pct">45%</span>
+                <p class="pie-label on-dark">尋求更有意義的工作</p>
+              </div>
+              <div class="pie-legend-item">
+                <div class="pie-swatch pie-swatch--2"></div>
+                <span class="pie-pct">27%</span>
+                <p class="pie-label on-dark">薪資與成長空間不足</p>
+              </div>
+              <div class="pie-legend-item">
+                <div class="pie-swatch pie-swatch--3"></div>
+                <span class="pie-pct">28%</span>
+                <p class="pie-label on-dark">組織文化或管理問題</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════ 6. IMAGE + TEXT, Plain（淺色）═══════════ -->
+  <div class="slide-group">
+    <p class="slide-label">6 — Image + Text, Plain（淺色）</p>
+    <div class="slide-wrap">
+      <div class="slide slide--light on-light">
+        <div class="img-plain-panel">
+          <div class="img-placeholder">
+            <span class="t-caption on-light">圖片放這裡</span>
+          </div>
+        </div>
+        <div class="inner inner--img-plain">
+          <div class="page-header">
+            <h2 class="t-page-title on-light">圖文說明標題</h2>
+          </div>
+          <div class="img-text__content">
+            <p class="t-body on-light">這裡放左側的說明文字。可以是圖片的背景脈絡、研究結論，或你想讓觀眾特別注意的細節。</p>
+            <p class="t-body on-light">第二段說明文字，補充更多細節或對比資訊。</p>
+            <p class="t-caption on-light">資料來源：Author, Year</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════ 6b. IMAGE + TEXT, Browser（淺色）═══════════ -->
+  <div class="slide-group">
+    <p class="slide-label">6 — Image + Text, Browser Frame（淺色）</p>
+    <div class="slide-wrap">
+      <div class="slide slide--light on-light">
+        <div class="inner">
+          <div class="page-header">
+            <h2 class="t-page-title on-light">網頁截圖說明</h2>
+          </div>
+          <div class="img-text-layout img-text-layout--wide">
+            <div class="img-text__content">
+              <p class="t-body on-light">這裡放左側的說明文字。可以是截圖的說明、操作步驟，或你想讓觀眾注意的功能細節。</p>
+              <p class="t-body on-light">第二段補充說明，搭配右側截圖說明使用方式。</p>
+              <p class="t-caption on-light">資料來源：Author, Year</p>
+            </div>
+            <div class="img-text__image">
+              <div class="img-wrap img-wrap--browser">
+                <div class="browser-chrome">
+                  <div class="browser-dots">
+                    <div class="browser-dot browser-dot--r"></div>
+                    <div class="browser-dot browser-dot--y"></div>
+                    <div class="browser-dot browser-dot--g"></div>
+                  </div>
+                  <div class="browser-bar"></div>
+                </div>
+                <div class="browser-body">
+                  <span class="t-caption on-light">截圖放這裡</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════ 6c. IMAGE + TEXT, Plain（深色）═══════════ -->
+  <div class="slide-group">
+    <p class="slide-label">6 — Image + Text, Plain（深色）</p>
+    <div class="slide-wrap">
+      <div class="slide slide--dark on-dark">
+        <div class="img-plain-panel">
+          <div class="img-placeholder">
+            <span class="t-caption on-dark">圖片放這裡</span>
+          </div>
+        </div>
+        <div class="inner inner--img-plain">
+          <div class="page-header">
+            <h2 class="t-page-title on-dark">圖文說明標題</h2>
+          </div>
+          <div class="img-text__content">
+            <p class="t-body on-dark">這裡放左側的說明文字。可以是圖片的背景脈絡、研究結論，或你想讓觀眾特別注意的細節。</p>
+            <p class="t-body on-dark">第二段說明文字，補充更多細節或對比資訊。</p>
+            <p class="t-caption on-dark">資料來源：Author, Year</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════ 6d. IMAGE + TEXT, Browser（深色）═══════════ -->
+  <div class="slide-group">
+    <p class="slide-label">6 — Image + Text, Browser Frame（深色）</p>
+    <div class="slide-wrap">
+      <div class="slide slide--dark on-dark">
+        <div class="inner">
+          <div class="page-header">
+            <h2 class="t-page-title on-dark">網頁截圖說明</h2>
+          </div>
+          <div class="img-text-layout img-text-layout--wide">
+            <div class="img-text__content">
+              <p class="t-body on-dark">這裡放左側的說明文字。可以是截圖的說明、操作步驟，或你想讓觀眾注意的功能細節。</p>
+              <p class="t-body on-dark">第二段補充說明，搭配右側截圖說明使用方式。</p>
+              <p class="t-caption on-dark">資料來源：Author, Year</p>
+            </div>
+            <div class="img-text__image">
+              <div class="img-wrap img-wrap--browser">
+                <div class="browser-chrome">
+                  <div class="browser-dots">
+                    <div class="browser-dot browser-dot--r"></div>
+                    <div class="browser-dot browser-dot--y"></div>
+                    <div class="browser-dot browser-dot--g"></div>
+                  </div>
+                  <div class="browser-bar"></div>
+                </div>
+                <div class="browser-body">
+                  <span class="t-caption on-dark">截圖放這裡</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════ 7. IMAGE ONLY, Plain（淺色）═══════════ -->
+  <div class="slide-group">
+    <p class="slide-label">7 — Image Only, Plain（淺色）</p>
+    <div class="slide-wrap">
+      <div class="slide slide--light on-light">
+        <div class="inner">
+          <div class="page-header">
+            <h2 class="t-page-title on-light">圖片展示標題</h2>
+          </div>
+          <div class="img-only-layout">
+            <div class="img-wrap img-wrap--plain">
+              <div class="img-placeholder">
+                <span class="t-caption on-light">圖片放這裡</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════ 7b. IMAGE ONLY, Browser（淺色）═══════════ -->
+  <div class="slide-group">
+    <p class="slide-label">7 — Image Only, Browser Frame（淺色）</p>
+    <div class="slide-wrap">
+      <div class="slide slide--light on-light">
+        <div class="inner">
+          <div class="page-header">
+            <h2 class="t-page-title on-light">網頁截圖全版</h2>
+          </div>
+          <div class="img-only-layout">
+            <div class="img-wrap img-wrap--browser">
+              <div class="browser-chrome">
+                <div class="browser-dots">
+                  <div class="browser-dot browser-dot--r"></div>
+                  <div class="browser-dot browser-dot--y"></div>
+                  <div class="browser-dot browser-dot--g"></div>
+                </div>
+                <div class="browser-bar"></div>
+              </div>
+              <div class="browser-body">
+                <span class="t-caption on-light">截圖放這裡</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════ 7c. IMAGE ONLY, Plain（深色）═══════════ -->
+  <div class="slide-group">
+    <p class="slide-label">7 — Image Only, Plain（深色）</p>
+    <div class="slide-wrap">
+      <div class="slide slide--dark on-dark">
+        <div class="inner">
+          <div class="page-header">
+            <h2 class="t-page-title on-dark">圖片展示標題</h2>
+          </div>
+          <div class="img-only-layout">
+            <div class="img-wrap img-wrap--plain">
+              <div class="img-placeholder">
+                <span class="t-caption on-dark">圖片放這裡</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════ 7. IMAGE ONLY, Plain 2-up（淺色）═══════════ -->
+  <div class="slide-group">
+    <p class="slide-label">7 — Image Only, Plain 2-up（淺色）</p>
+    <div class="slide-wrap">
+      <div class="slide slide--light on-light">
+        <div class="inner">
+          <div class="page-header">
+            <h2 class="t-page-title on-light">圖片展示標題</h2>
+          </div>
+          <div class="img-only-layout">
+            <div class="img-wrap img-wrap--plain">
+              <div class="img-placeholder">
+                <span class="t-caption on-light">圖片 1</span>
+              </div>
+            </div>
+            <div class="img-wrap img-wrap--plain">
+              <div class="img-placeholder">
+                <span class="t-caption on-light">圖片 2</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════ 7. IMAGE ONLY, Plain 3-up（淺色）═══════════ -->
+  <div class="slide-group">
+    <p class="slide-label">7 — Image Only, Plain 3-up（淺色）</p>
+    <div class="slide-wrap">
+      <div class="slide slide--light on-light">
+        <div class="inner">
+          <div class="page-header">
+            <h2 class="t-page-title on-light">圖片展示標題</h2>
+          </div>
+          <div class="img-only-layout">
+            <div class="img-wrap img-wrap--plain">
+              <div class="img-placeholder">
+                <span class="t-caption on-light">圖片 1</span>
+              </div>
+            </div>
+            <div class="img-wrap img-wrap--plain">
+              <div class="img-placeholder">
+                <span class="t-caption on-light">圖片 2</span>
+              </div>
+            </div>
+            <div class="img-wrap img-wrap--plain">
+              <div class="img-placeholder">
+                <span class="t-caption on-light">圖片 3</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════ 7. IMAGE ONLY, Plain 2-up（深色）═══════════ -->
+  <div class="slide-group">
+    <p class="slide-label">7 — Image Only, Plain 2-up（深色）</p>
+    <div class="slide-wrap">
+      <div class="slide slide--dark on-dark">
+        <div class="inner">
+          <div class="page-header">
+            <h2 class="t-page-title on-dark">圖片展示標題</h2>
+          </div>
+          <div class="img-only-layout">
+            <div class="img-wrap img-wrap--plain">
+              <div class="img-placeholder">
+                <span class="t-caption on-dark">圖片 1</span>
+              </div>
+            </div>
+            <div class="img-wrap img-wrap--plain">
+              <div class="img-placeholder">
+                <span class="t-caption on-dark">圖片 2</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════ 7. IMAGE ONLY, Plain 3-up（深色）═══════════ -->
+  <div class="slide-group">
+    <p class="slide-label">7 — Image Only, Plain 3-up（深色）</p>
+    <div class="slide-wrap">
+      <div class="slide slide--dark on-dark">
+        <div class="inner">
+          <div class="page-header">
+            <h2 class="t-page-title on-dark">圖片展示標題</h2>
+          </div>
+          <div class="img-only-layout">
+            <div class="img-wrap img-wrap--plain">
+              <div class="img-placeholder">
+                <span class="t-caption on-dark">圖片 1</span>
+              </div>
+            </div>
+            <div class="img-wrap img-wrap--plain">
+              <div class="img-placeholder">
+                <span class="t-caption on-dark">圖片 2</span>
+              </div>
+            </div>
+            <div class="img-wrap img-wrap--plain">
+              <div class="img-placeholder">
+                <span class="t-caption on-dark">圖片 3</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════ 7d. IMAGE ONLY, Browser（深色）═══════════ -->
+  <div class="slide-group">
+    <p class="slide-label">7 — Image Only, Browser Frame（深色）</p>
+    <div class="slide-wrap">
+      <div class="slide slide--dark on-dark">
+        <div class="inner">
+          <div class="page-header">
+            <h2 class="t-page-title on-dark">網頁截圖全版</h2>
+          </div>
+          <div class="img-only-layout">
+            <div class="img-wrap img-wrap--browser">
+              <div class="browser-chrome">
+                <div class="browser-dots">
+                  <div class="browser-dot browser-dot--r"></div>
+                  <div class="browser-dot browser-dot--y"></div>
+                  <div class="browser-dot browser-dot--g"></div>
+                </div>
+                <div class="browser-bar"></div>
+              </div>
+              <div class="browser-body">
+                <span class="t-caption on-dark">截圖放這裡</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════ 8. LIST（淺色）═══════════ -->
+  <div class="slide-group">
+    <p class="slide-label">8 — List（淺色）</p>
+    <div class="slide-wrap">
+      <div class="slide slide--light on-light">
+        <div class="inner">
+          <div class="page-header">
+            <h2 class="t-page-title on-light">三件事你要先知道</h2>
+          </div>
+          <ul class="slide-list">
+            <li class="list-item">
+              <span class="t-num">01</span>
+              <div class="list-item__text">
+                <p class="t-list-title on-light">技術以外的核心</p>
+                <p class="t-body on-light">這份工作最難的部分不是技術，而是對自己的理解與誠實。</p>
+              </div>
+            </li>
+            <li class="list-item">
+              <span class="t-num">02</span>
+              <div class="list-item__text">
+                <p class="t-list-title on-light">可以刻意培養</p>
+                <p class="t-body on-light">職涯適應力可以刻意練習，不是天生就有的固定特質。</p>
+              </div>
+            </li>
+            <li class="list-item">
+              <span class="t-num">03</span>
+              <div class="list-item__text">
+                <p class="t-list-title on-light">現在就是最好時機</p>
+                <p class="t-body on-light">最好的時間點是現在，不是等到一切都準備好的那一天。</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════ 8b. LIST（深色）═══════════ -->
+  <div class="slide-group">
+    <p class="slide-label">8 — List（深色）</p>
+    <div class="slide-wrap">
+      <div class="slide slide--dark on-dark">
+        <div class="inner">
+          <div class="page-header">
+            <h2 class="t-page-title on-dark">三件事你要先知道</h2>
+          </div>
+          <ul class="slide-list">
+            <li class="list-item">
+              <span class="t-num">01</span>
+              <div class="list-item__text">
+                <p class="t-list-title on-dark">技術以外的核心</p>
+                <p class="t-body on-dark">這份工作最難的部分不是技術，而是對自己的理解與誠實。</p>
+              </div>
+            </li>
+            <li class="list-item">
+              <span class="t-num">02</span>
+              <div class="list-item__text">
+                <p class="t-list-title on-dark">可以刻意培養</p>
+                <p class="t-body on-dark">職涯適應力可以刻意練習，不是天生就有的固定特質。</p>
+              </div>
+            </li>
+            <li class="list-item">
+              <span class="t-num">03</span>
+              <div class="list-item__text">
+                <p class="t-list-title on-dark">現在就是最好時機</p>
+                <p class="t-body on-dark">最好的時間點是現在，不是等到一切都準備好的那一天。</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════ 9. QUOTE（淺色）═══════════ -->
+  <div class="slide-group">
+    <p class="slide-label">9 — Quote（淺色）</p>
+    <div class="slide-wrap">
+      <div class="slide slide--light on-light">
+        <div class="inner">
+          <div class="quote-layout">
+            <div class="quote-inner">
+              <div class="quote-bar"></div>
+              <div class="quote-content">
+                <p class="t-quote on-light">站在樹上的鳥兒不害怕樹枝斷裂，牠相信的是自己的翅膀。</p>
+                <span class="t-quote-source on-light">— 雷蒙《超級個體工作術》</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════ 9b. QUOTE（深色）═══════════ -->
+  <div class="slide-group">
+    <p class="slide-label">9 — Quote（深色）</p>
+    <div class="slide-wrap">
+      <div class="slide slide--dark on-dark">
+        <div class="inner">
+          <div class="quote-layout">
+            <div class="quote-inner">
+              <div class="quote-bar"></div>
+              <div class="quote-content">
+                <p class="t-quote on-dark">強者的內在有韌性，他可以調整自己處理事情的方式。只要可以改善、進步，他就會調整。這種人適應力非常強，不管什麼境界，他都有辦法回應。</p>
+                <span class="t-quote-source on-dark">— 慧光法師《和平的閑事》</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>lucide.createIcons();</script>
+</body>
+</html>
