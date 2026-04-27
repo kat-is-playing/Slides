@@ -775,5 +775,88 @@
   </div>
 
   <script>lucide.createIcons();</script>
+
+  <!-- Present button -->
+  <button class="present-btn" id="presentBtn">
+    <i data-lucide="monitor-play"></i> 簡報模式
+  </button>
+
+  <!-- Present overlay -->
+  <div class="present-overlay" id="presentOverlay">
+    <div class="present-stage" id="presentStage"></div>
+    <div class="present-zone present-zone--prev" id="prevZone"></div>
+    <div class="present-zone present-zone--next" id="nextZone"></div>
+    <div class="present-cursor hidden" id="presentCursor"></div>
+  </div>
+
+  <script>
+  (function () {
+    const slides = Array.from(document.querySelectorAll('.slide-wrap .slide'));
+    let cur = 0;
+
+    const overlay    = document.getElementById('presentOverlay');
+    const stage      = document.getElementById('presentStage');
+    const prevZone   = document.getElementById('prevZone');
+    const nextZone   = document.getElementById('nextZone');
+    const cursor     = document.getElementById('presentCursor');
+
+    function scaleStage() {
+      const s = Math.min(window.innerWidth / 1920, window.innerHeight / 1080);
+      stage.style.transform = `scale(${s})`;
+    }
+
+    function show(i) {
+      cur = Math.max(0, Math.min(i, slides.length - 1));
+      stage.innerHTML = '';
+      stage.appendChild(slides[cur].cloneNode(true));
+      lucide.createIcons({ node: stage });
+      scaleStage();
+    }
+
+    function enter() {
+      overlay.classList.add('active');
+      show(cur);
+      document.body.style.overflow = 'hidden';
+      document.documentElement.requestFullscreen().catch(() => {});
+    }
+
+    function exit() {
+      overlay.classList.remove('active');
+      document.body.style.overflow = '';
+      if (document.fullscreenElement) document.exitFullscreen().catch(() => {});
+    }
+
+    document.getElementById('presentBtn').addEventListener('click', enter);
+    prevZone.addEventListener('click', () => show(cur - 1));
+    nextZone.addEventListener('click', () => show(cur + 1));
+
+    document.addEventListener('keydown', (e) => {
+      if (!overlay.classList.contains('active')) return;
+      if (e.key === 'Escape') exit();
+      if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') { e.preventDefault(); show(cur + 1); }
+      if (e.key === 'ArrowLeft'  || e.key === 'PageUp') { e.preventDefault(); show(cur - 1); }
+    });
+
+    document.addEventListener('fullscreenchange', () => {
+      if (!document.fullscreenElement) exit();
+    });
+
+    window.addEventListener('resize', () => {
+      if (overlay.classList.contains('active')) scaleStage();
+    });
+
+    // Cursor spotlight
+    let cursorTimer;
+    overlay.addEventListener('mousemove', (e) => {
+      cursor.style.left = e.clientX + 'px';
+      cursor.style.top  = e.clientY + 'px';
+      cursor.classList.remove('hidden');
+      clearTimeout(cursorTimer);
+      cursorTimer = setTimeout(() => cursor.classList.add('hidden'), 1500);
+    });
+
+    lucide.createIcons({ node: document.getElementById('presentBtn') });
+  })();
+  </script>
 </body>
 </html>
