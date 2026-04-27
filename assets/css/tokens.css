@@ -1,0 +1,92 @@
+/* ══════════════════════════════════════════════
+   Kat Career Coach — Design Tokens
+   Single source of truth. Load before project CSS.
+   ══════════════════════════════════════════════ */
+
+:root {
+
+  /* ── Gold ───────────────────────────────────── */
+  --gold-50:  #F7F4EF;
+  --gold-100: #EDE5D6;
+  --gold-200: #DDD0BC;
+  --gold-300: #C4B49A;
+  --gold-400: #B5A489;
+  --gold-500: #A8977B;
+  --gold-600: #8A7A61;
+  --gold-700: #6B5E49;
+  --gold-800: #4D4333;
+  --gold-900: #2E2820;
+
+  /* ── Gray ───────────────────────────────────── */
+  --gray-50:  #F7F7F7;
+  --gray-100: #EEEEEE;
+  --gray-200: #CCCCCC;
+  --gray-300: #AAAAAA;
+  --gray-400: #888888;
+  --gray-500: #616161;
+  --gray-600: #424242;
+  --gray-700: #2E2E2E;
+  --gray-800: #1A1A1A;
+  --gray-900: #111111;
+
+  /* ── Functional: Red ────────────────────────── */
+  --red-50:  #FAF0EF;
+  --red-100: #F4DCDA;
+  --red-200: #E8C0BC;
+  --red-300: #D89E9A;
+  --red-400: #C87A76;
+  --red-500: #B85C58;
+  --red-600: #9A4A46;
+  --red-700: #7C3A36;
+  --red-800: #5E2A28;
+  --red-900: #3E1C1A;
+
+  /* ── Functional: Yellow ─────────────────────── */
+  --yellow-50:  #FAF6E6;
+  --yellow-100: #F5EACC;
+  --yellow-200: #EDD9A0;
+  --yellow-300: #E2C570;
+  --yellow-400: #D6AE40;
+  --yellow-500: #C8981A;
+  --yellow-600: #A87C12;
+  --yellow-700: #88620C;
+  --yellow-800: #664808;
+  --yellow-900: #443004;
+
+  /* ── Functional: Green ──────────────────────── */
+  --green-50:  #EDF2EC;
+  --green-100: #D8E6D6;
+  --green-200: #BDD4B9;
+  --green-300: #9DBF98;
+  --green-400: #7BA076;
+  --green-500: #5C7A58;
+  --green-600: #4A6246;
+  --green-700: #3A4E36;
+  --green-800: #2A3826;
+  --green-900: #1C2418;
+
+  /* ── Functional: Blue ───────────────────────── */
+  --blue-50:  #EAF0F5;
+  --blue-100: #D2E0EC;
+  --blue-200: #B2CCDF;
+  --blue-300: #8EB3CE;
+  --blue-400: #6A92AC;
+  --blue-500: #4C6E8C;
+  --blue-600: #3C5870;
+  --blue-700: #2E4456;
+  --blue-800: #20303E;
+  --blue-900: #141E28;
+
+  /* ── Functional: Purple ─────────────────────── */
+  --purple-50:  #F1EEF7;
+  --purple-100: #E4DCEF;
+  --purple-200: #D0C4E4;
+  --purple-300: #B8A8D4;
+  --purple-400: #9A8ABC;
+  --purple-500: #7C6AA0;
+  --purple-600: #645484;
+  --purple-700: #4E4068;
+  --purple-800: #382E4C;
+  --purple-900: #241C32;
+
+}
