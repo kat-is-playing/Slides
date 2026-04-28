@@ -162,6 +162,11 @@ function initPresent() {
     overlay.classList.add('active');
     show(startIdx !== undefined ? startIdx : cur, 0);
     document.body.style.overflow = 'hidden';
+    const el = document.documentElement;
+    const req = el.requestFullscreen || el.webkitRequestFullscreen;
+    if (req && !document.fullscreenElement && !document.webkitFullscreenElement) {
+      Promise.resolve(req.call(el)).then(scaleStage).catch(() => {});
+    }
   }
   window._slideEnter = enter;
 
@@ -171,7 +176,16 @@ function initPresent() {
     if (progressTip) progressTip.classList.remove('visible');
     if (progressNum) progressNum.classList.remove('visible');
     document.body.style.overflow = '';
+    const ex = document.exitFullscreen || document.webkitExitFullscreen;
+    if (ex && (document.fullscreenElement || document.webkitFullscreenElement)) {
+      ex.call(document).catch(() => {});
+    }
   }
+
+  document.addEventListener('fullscreenchange', () => {
+    if (!document.fullscreenElement && overlay.classList.contains('active')) exit();
+    else if (overlay.classList.contains('active')) scaleStage();
+  });
 
   /* ── Progress bar interactions ── */
   if (progress) {
