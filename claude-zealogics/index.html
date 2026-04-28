@@ -10,12 +10,13 @@
   <link rel="stylesheet" href="../../tokens.css" />
   <link rel="stylesheet" href="../template/slide.css" />
   <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+  <script src="../template/slide.js"></script>
 </head>
 <body>
 
   <!-- ═══════════ 1. COVER ═══════════ -->
   <div class="slide-group">
-    <p class="slide-label">1 — Cover</p>
+    <p class="slide-label">Page 1</p>
     <div class="slide-wrap">
       <div class="slide slide--dark cover on-dark">
         <div class="cover__bg">
@@ -36,7 +37,7 @@
 
   <!-- ═══════════ 2. AGENDA ═══════════ -->
   <div class="slide-group">
-    <p class="slide-label">2 — Agenda</p>
+    <p class="slide-label">Page 2</p>
     <div class="slide-wrap">
       <div class="slide slide--light on-light">
         <div class="inner">
@@ -49,7 +50,16 @@
               <span class="agenda-item__star">✦</span>
               <span class="t-agenda-text on-light">第一次當慣老闆就上手</span>
             </li>
-            <!-- 更多章節陸續加入 -->
+            <li class="agenda-item">
+              <span class="agenda-item__num">02</span>
+              <span class="agenda-item__star">✦</span>
+              <span class="t-agenda-text on-light">設定員工的工作環境</span>
+            </li>
+            <li class="agenda-item">
+              <span class="agenda-item__num">03</span>
+              <span class="agenda-item__star">✦</span>
+              <span class="t-agenda-text on-light">告訴員工你的品牌規範和標準</span>
+            </li>
           </ul>
         </div>
       </div>
@@ -58,7 +68,7 @@
 
   <!-- ═══════════ 3. SECTION DIVIDER — Part 1 ═══════════ -->
   <div class="slide-group">
-    <p class="slide-label">3 — Section Divider · Part 1</p>
+    <p class="slide-label">Page 3</p>
     <div class="slide-wrap">
       <div class="slide slide--dark section-divider on-dark">
         <div class="inner">
@@ -74,7 +84,7 @@
 
   <!-- ═══════════ 4. IMAGE + TEXT — 下班後是一位職涯諮詢師 ═══════════ -->
   <div class="slide-group">
-    <p class="slide-label">4 — Image + Text</p>
+    <p class="slide-label">Page 4</p>
     <div class="slide-wrap">
       <div class="slide slide--light on-light">
         <div class="img-plain-panel">
@@ -97,7 +107,7 @@
 
   <!-- ═══════════ 5. IMAGE + TEXT — 為什麼需要請員工 ═══════════ -->
   <div class="slide-group">
-    <p class="slide-label">5 — Image + Text, Browser</p>
+    <p class="slide-label">Page 5</p>
     <div class="slide-wrap">
       <div class="slide slide--light on-light">
         <div class="inner">
@@ -107,7 +117,7 @@
           <div class="img-text-layout img-text-layout--wide">
             <div class="img-text__content">
               <p class="t-body on-light">隨著服務人數越來越多，希望提升行政和創作流程（寫文章、做簡報）的效率。</p>
-              <p class="t-body on-light">也想再提升服務能見度，例如建立官網。所以聘請能滿足我大部分需求的 Claude 來當我的員工。</p>
+              <p class="t-body on-light">也想再提升服務能見度，例如：建立官網。所以聘請能滿足我大部分需求的 Claude 來當我的員工。</p>
             </div>
             <div class="img-text__image">
               <div class="img-wrap img-wrap--browser">
@@ -132,7 +142,7 @@
 
   <!-- ═══════════ 6. IMAGE + TEXT — 老闆只有基礎網頁開發知識 ═══════════ -->
   <div class="slide-group">
-    <p class="slide-label">6 — Image + Text</p>
+    <p class="slide-label">Page 6</p>
     <div class="slide-wrap">
       <div class="slide slide--light on-light">
         <div class="img-plain-panel">
@@ -153,14 +163,36 @@
     </div>
   </div>
 
-  <!-- ═══════════ 7. PIE CHART — 要駕馭員工，就要先理解員工 ═══════════ -->
+  <!-- ═══════════ 7. IMAGE ONLY 2-up — 但是看得懂工程迷因梗圖 ═══════════ -->
   <div class="slide-group">
-    <p class="slide-label">7 — Pie Chart</p>
+    <p class="slide-label">Page 7</p>
     <div class="slide-wrap">
       <div class="slide slide--light on-light">
         <div class="inner">
           <div class="page-header">
-            <h2 class="t-page-title on-light">要駕馭員工，就要先理解員工</h2>
+            <h2 class="t-page-title on-light">但是看得懂工程迷因梗圖</h2>
+          </div>
+          <div class="img-only-layout img-only-layout--centered">
+            <div class="img-wrap img-wrap--plain img-wrap--bordered img-wrap--contain img-wrap--ratio-3-4">
+              <img src="assets/p7-meme1.png" alt="Bug vs Feature meme" />
+            </div>
+            <div class="img-wrap img-wrap--plain img-wrap--bordered img-wrap--contain img-wrap--ratio-3-4">
+              <img src="assets/p7-meme2.png" alt="程式一團糟還是可以運作 meme" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════ 8. PIE CHART — 要駕馭員工，就要先理解員工 ═══════════ -->
+  <div class="slide-group">
+    <p class="slide-label">Page 8</p>
+    <div class="slide-wrap">
+      <div class="slide slide--dark on-dark">
+        <div class="inner">
+          <div class="page-header">
+            <h2 class="t-page-title on-dark">要駕馭員工，就要先理解員工</h2>
           </div>
           <div class="pie-layout">
             <div class="pie-chart-area">
@@ -170,17 +202,17 @@
               <div class="pie-legend-item">
                 <div class="pie-swatch pie-swatch--1"></div>
                 <span class="pie-pct">50%</span>
-                <p class="pie-label on-light"><strong>原則：</strong>AI 跟人類的強項？如何協作才更順暢？</p>
+                <p class="pie-label on-dark"><strong>原則：</strong>AI 跟人類的強項？如何協作才更順暢？</p>
               </div>
               <div class="pie-legend-item">
                 <div class="pie-swatch pie-swatch--2"></div>
                 <span class="pie-pct">30%</span>
-                <p class="pie-label on-light"><strong>工具：</strong>Claude Code 的應用概念和技巧</p>
+                <p class="pie-label on-dark"><strong>工具：</strong>Claude Code 的應用概念和技巧</p>
               </div>
               <div class="pie-legend-item">
                 <div class="pie-swatch pie-swatch--3"></div>
                 <span class="pie-pct">20%</span>
-                <p class="pie-label on-light"><strong>哲學：</strong>AI 時代下，人類的獨特性和價值？</p>
+                <p class="pie-label on-dark"><strong>哲學：</strong>AI 時代下，人類的獨特性和價值？</p>
               </div>
             </div>
           </div>
@@ -189,7 +221,484 @@
     </div>
   </div>
 
-  <script>lucide.createIcons();</script>
+  <!-- ═══════════ 9. LIST — 推薦這些讓我少走彎路的課程 ═══════════ -->
+  <div class="slide-group">
+    <p class="slide-label">Page 9</p>
+    <div class="slide-wrap">
+      <div class="slide slide--light on-light">
+        <div class="inner">
+          <div class="page-header">
+            <h2 class="t-page-title on-light">推薦這些讓我少走彎路的課程</h2>
+          </div>
+          <ul class="slide-list">
+            <li class="list-item">
+              <span class="t-num">01</span>
+              <div class="list-item__text">
+                <div class="list-item__title-row">
+                  <p class="t-list-title on-light">Anthropic《Claude101》、《AI Fluency》</p>
+                  <span class="slide-tag slide-tag--yellow">FREE</span>
+                </div>
+                <p class="t-body on-light">傳授不少就算工具改變，也依然適用的人機協作心法</p>
+              </div>
+            </li>
+            <li class="list-item">
+              <span class="t-num">02</span>
+              <div class="list-item__text">
+                <div class="list-item__title-row">
+                  <p class="t-list-title on-light">雷蒙《24 小時開始活用 Claude Code》</p>
+                  <span class="slide-tag slide-tag--purple">NT$999</span>
+                </div>
+                <p class="t-body on-light">不只有多樣的應用案例，教學方式對非工程師也很友善</p>
+              </div>
+            </li>
+            <li class="list-item">
+              <span class="t-num">03</span>
+              <div class="list-item__text">
+                <div class="list-item__title-row">
+                  <p class="t-list-title on-light">台大公開課《AI 時代人類的獨特性》</p>
+                  <span class="slide-tag slide-tag--yellow">FREE</span>
+                </div>
+                <p class="t-body on-light">從哲學、心理學、腦科學層面，談 AI 對人類的影響</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════ 10. QUOTE ═══════════ -->
+  <div class="slide-group">
+    <p class="slide-label">Page 10</p>
+    <div class="slide-wrap">
+      <div class="slide slide--dark on-dark">
+        <div class="inner">
+          <div class="quote-layout">
+            <div class="quote-inner">
+              <div class="quote-bar"></div>
+              <div class="quote-content">
+                <p class="t-quote on-dark">The real power of Claude comes with continued and frequent communication, not just one-off prompts.</p>
+                <p class="t-quote on-dark" style="font-style:italic;">Claude 真正的強大之處在於持續且頻繁的對話交流，而不僅僅是一次性的提示詞。</p>
+                <p class="t-quote-source on-dark">— Anthropic《Claude 101》</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════ 11. COMPARE TABLE — 發揮各自所長，才能事半功倍 ═══════════ -->
+  <div class="slide-group">
+    <p class="slide-label">Page 11</p>
+    <div class="slide-wrap">
+      <div class="slide slide--light on-light">
+        <div class="inner">
+          <div class="page-header">
+            <h2 class="t-page-title on-light">發揮各自所長，才能事半功倍</h2>
+          </div>
+          <div class="compare-layout">
+            <div class="compare-table">
+              <div class="compare-row compare-row--header">
+                <span class="compare-cell"><i data-lucide="user"></i>人類提供</span>
+                <span class="compare-cell"><i data-lucide="bot"></i>AI 提供</span>
+              </div>
+              <div class="compare-row">
+                <span class="compare-cell">批判性思考 (critical thinking)</span>
+                <span class="compare-cell">速度 (speed)</span>
+              </div>
+              <div class="compare-row">
+                <span class="compare-cell">判斷力 (judgment)</span>
+                <span class="compare-cell">規模 (scale)</span>
+              </div>
+              <div class="compare-row">
+                <span class="compare-cell">創造力 (creativity)</span>
+                <span class="compare-cell">模式識別 (pattern recognition)</span>
+              </div>
+              <div class="compare-row">
+                <span class="compare-cell">倫理監督 (ethical oversight)</span>
+                <span class="compare-cell">處理能力 (processing abilities)</span>
+              </div>
+            </div>
+            <p class="compare-source on-light">Source: Anthropic《AI Fluency》</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════ 12. IMAGE ONLY — 轉換工具時，表現會暫時下降 ═══════════ -->
+  <div class="slide-group">
+    <p class="slide-label">Page 12</p>
+    <div class="slide-wrap">
+      <div class="slide slide--light on-light">
+        <div class="inner">
+          <div class="page-header">
+            <h2 class="t-page-title on-light">轉換工具時，表現會暫時下降</h2>
+          </div>
+          <p class="slide-desc t-body on-light">必須要讓自己接受表現暫時變差</p>
+          <div class="img-only-layout">
+            <div class="img-wrap img-wrap--plain img-wrap--bordered img-wrap--ratio-16-9">
+              <img src="assets/p12-performance-dip.png" alt="轉換工具時表現暫時下降示意圖" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════ 13. SECTION DIVIDER — Part 2 ═══════════ -->
+  <div class="slide-group">
+    <p class="slide-label">Page 13</p>
+    <div class="slide-wrap">
+      <div class="slide slide--dark section-divider on-dark">
+        <div class="inner">
+          <div class="section-divider__row">
+            <span class="t-section-num">Part 2</span>
+            <div class="section-divider__line"></div>
+          </div>
+          <h2 class="t-section-title on-dark">設定員工的工作環境</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════ 14. IMAGE + TEXT — 使用 Warp 終端機，加上 Dashboard ═══════════ -->
+  <div class="slide-group">
+    <p class="slide-label">Page 14</p>
+    <div class="slide-wrap">
+      <div class="slide slide--light on-light">
+        <div class="inner">
+          <div class="page-header">
+            <h2 class="t-page-title on-light">使用 Warp 終端機，加上 Dashboard</h2>
+          </div>
+          <div class="img-text-layout img-text-layout--wide">
+            <div class="img-text__content">
+              <p class="t-body on-light">Warp 可以直接看到資料夾和 .md 文件，對我來說比一般終端機方便。</p>
+              <p class="t-body on-light">下方有請 Claude Code 自己新增 Dashboard（Token 用量和 Reset 時間），方便我了解他還可以工作多久。</p>
+            </div>
+            <div class="img-text__image">
+              <div class="img-wrap img-wrap--browser">
+                <div class="browser-chrome">
+                  <div class="browser-dots">
+                    <div class="browser-dot browser-dot--r"></div>
+                    <div class="browser-dot browser-dot--y"></div>
+                    <div class="browser-dot browser-dot--g"></div>
+                  </div>
+                  <div class="browser-bar"></div>
+                </div>
+                <div class="browser-body">
+                  <img src="assets/p14-warp.png" alt="Warp 終端機 + Dashboard" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════ 15. IMAGE + TEXT — 設定 Git 做版本紀錄 ═══════════ -->
+  <div class="slide-group">
+    <p class="slide-label">Page 15</p>
+    <div class="slide-wrap">
+      <div class="slide slide--light on-light">
+        <div class="inner">
+          <div class="page-header">
+            <h2 class="t-page-title on-light">設定 Git 做版本紀錄</h2>
+          </div>
+          <div class="img-text-layout img-text-layout--wide">
+            <div class="img-text__content">
+              <p class="t-body on-light">只需要用自然語言跟 Claude 溝通就好，例如：</p>
+              <ul class="inline-list">
+                <li class="t-body on-light">幫我推上去 GitHub，建立 Pages</li>
+                <li class="t-body on-light">我要看之前的版本紀錄</li>
+                <li class="t-body on-light">幫我把＿＿版本抓下來</li>
+              </ul>
+            </div>
+            <div class="img-text__image">
+              <div class="img-wrap img-wrap--browser">
+                <div class="browser-chrome">
+                  <div class="browser-dots">
+                    <div class="browser-dot browser-dot--r"></div>
+                    <div class="browser-dot browser-dot--y"></div>
+                    <div class="browser-dot browser-dot--g"></div>
+                  </div>
+                  <div class="browser-bar"></div>
+                </div>
+                <div class="browser-body">
+                  <img src="assets/p16-github.png" alt="GitHub 版本紀錄" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════ 16. IMAGE + TEXT — 撰寫 Claude.md 確保遵循工作守則 ═══════════ -->
+  <div class="slide-group">
+    <p class="slide-label">Page 16</p>
+    <div class="slide-wrap">
+      <div class="slide slide--light on-light">
+        <div class="img-plain-panel">
+          <div class="img-plain-panel__img-wrap">
+            <img src="assets/p15-claude-md.png" alt="Claude.md 在 VS Code 中" />
+          </div>
+        </div>
+        <div class="inner inner--img-plain">
+          <div class="page-header">
+            <h2 class="t-page-title on-light">撰寫 Claude.md<br>確保遵循工作守則</h2>
+          </div>
+          <div class="img-text__content">
+            <p class="t-body on-light">每次打開 Claude Code 開始新對話，都會自動先讀 Claude.md，可以請 Claude Code 自己撰寫並持續更新。</p>
+            <p class="t-body on-light">內容要精簡、撰寫最核心的守則就好，不然很消耗 Token：</p>
+            <ul class="inline-list">
+              <li class="t-body on-light">你是誰、身份是什麼</li>
+              <li class="t-body on-light">Always / Never 清單</li>
+              <li class="t-body on-light">目前執行的專案概覽</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════ 17. IMAGE + TEXT — 用 /plan 事先做好計劃 ═══════════ -->
+  <div class="slide-group">
+    <p class="slide-label">Page 17</p>
+    <div class="slide-wrap">
+      <div class="slide slide--light on-light">
+        <div class="img-plain-panel">
+          <div class="img-plain-panel__img-wrap">
+            <img src="assets/p17-plan.png" alt="/plan mode 介面" />
+          </div>
+        </div>
+        <div class="inner inner--img-plain">
+          <div class="page-header">
+            <h2 class="t-page-title on-light">用 /plan 事先做好計劃</h2>
+          </div>
+          <div class="img-text__content">
+            <p class="t-body on-light">Claude Code 有內建 Plan mode，可以輸入 <code>/plan</code> 或 <code>Shift+Tab</code> 切換。</p>
+            <p class="t-body on-light">好處是在執行比較複雜的任務前，能先看到 Claude 的思路跟規劃，不用等到執行完才發現跟期待有太大偏差。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════ 18. IMAGE + TEXT — 用 /brainstorming 釐清需求 ═══════════ -->
+  <div class="slide-group">
+    <p class="slide-label">Page 18</p>
+    <div class="slide-wrap">
+      <div class="slide slide--light on-light">
+        <div class="inner">
+          <div class="page-header">
+            <h2 class="t-page-title on-light">用 /brainstorming 釐清需求</h2>
+          </div>
+          <div class="img-text-layout img-text-layout--wide">
+            <div class="img-text__content">
+              <p class="t-body on-light">如果是需求比較模糊的專案（例如：想做一套簡報模板），可以安裝 <code>/brainstorming</code> skills 一步步確認規格，撰寫產品文件。</p>
+            </div>
+            <div class="img-text__image">
+              <div class="img-wrap img-wrap--browser">
+                <div class="browser-chrome">
+                  <div class="browser-dots">
+                    <div class="browser-dot browser-dot--r"></div>
+                    <div class="browser-dot browser-dot--y"></div>
+                    <div class="browser-dot browser-dot--g"></div>
+                  </div>
+                  <div class="browser-bar"></div>
+                </div>
+                <div class="browser-body">
+                  <img src="assets/p18-brainstorm.png" alt="brainstorming skill 介面" />
+                </div>
+              </div>
+            </div>
+          </div>
+          <span class="slide-tag slide-tag--yellow slide-tag--corner">
+            <i data-lucide="star" style="width:28px;height:28px;flex-shrink:0;"></i>
+            Star 170k
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════ 19. IMAGE + TEXT — 用 /caveman 節省 75% token 用量 ═══════════ -->
+  <div class="slide-group">
+    <p class="slide-label">Page 19</p>
+    <div class="slide-wrap">
+      <div class="slide slide--light on-light">
+        <div class="inner">
+          <div class="page-header">
+            <h2 class="t-page-title on-light">用 /caveman 節省 75% token 用量</h2>
+          </div>
+          <div class="img-text-layout img-text-layout--wide">
+            <div class="img-text__content">
+              <p class="t-body on-light">安裝 <code>/caveman</code> skills，讓 Claude 只講重點別廢話，實測覺得英文的節省效果比較好，所以我現在都是跟 Claude 講英文。</p>
+            </div>
+            <div class="img-text__image">
+              <div class="img-wrap img-wrap--browser">
+                <div class="browser-chrome">
+                  <div class="browser-dots">
+                    <div class="browser-dot browser-dot--r"></div>
+                    <div class="browser-dot browser-dot--y"></div>
+                    <div class="browser-dot browser-dot--g"></div>
+                  </div>
+                  <div class="browser-bar"></div>
+                </div>
+                <div class="browser-body">
+                  <img src="assets/p19-caveman.png" alt="caveman GitHub README" />
+                </div>
+              </div>
+            </div>
+          </div>
+          <span class="slide-tag slide-tag--yellow slide-tag--corner">
+            <i data-lucide="star" style="width:28px;height:28px;flex-shrink:0;"></i>
+            Star 48.3k
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════ 20. IMAGE + TEXT — 讓 Claude 紀錄工作日誌 ═══════════ -->
+  <div class="slide-group">
+    <p class="slide-label">Page 20</p>
+    <div class="slide-wrap">
+      <div class="slide slide--light on-light">
+        <div class="img-plain-panel">
+          <div class="img-plain-panel__img-wrap">
+            <img src="assets/p20-daily-log.png" alt="daily log in VS Code" />
+          </div>
+        </div>
+        <div class="inner inner--img-plain">
+          <div class="page-header">
+            <h2 class="t-page-title on-light">讓 Claude 寫工作日誌</h2>
+          </div>
+          <div class="img-text__content">
+            <p class="t-body on-light">自己建立 <code>/daily-log</code> skills，在工作告一段落後，讓 Claude 紀錄完成事項、決策項目、待追蹤項目。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════ 21. SECTION DIVIDER — Part 3 ═══════════ -->
+  <div class="slide-group">
+    <p class="slide-label">Page 21</p>
+    <div class="slide-wrap">
+      <div class="slide slide--dark section-divider on-dark">
+        <div class="inner">
+          <div class="section-divider__row">
+            <span class="t-section-num">Part 3</span>
+            <div class="section-divider__line"></div>
+          </div>
+          <h2 class="t-section-title on-dark">告訴員工你的品牌規範和標準</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════ 22. QUOTE — 品牌規範比喻 ═══════════ -->
+  <div class="slide-group">
+    <p class="slide-label">Page 22</p>
+    <div class="slide-wrap">
+      <div class="slide slide--dark on-dark">
+        <div class="inner">
+          <div class="quote-layout">
+            <div class="quote-inner">
+              <div class="quote-bar"></div>
+              <div class="quote-content">
+                <p class="t-quote on-dark">就像公司來了一位有很大潛力的新人，<br>你要先讓他知道你期待的品質，並設定目標和限制，<br>他才能在這些前提下交付讓你滿意的產出。</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════ 23. IMAGE + TEXT — 撰寫 brand-guideline.md ═══════════ -->
+  <div class="slide-group">
+    <p class="slide-label">Page 23</p>
+    <div class="slide-wrap">
+      <div class="slide slide--light on-light">
+        <div class="inner">
+          <div class="page-header">
+            <h2 class="t-page-title on-light">撰寫 brand-guideline.md</h2>
+          </div>
+          <div class="img-text-layout img-text-layout--wide">
+            <div class="img-text__content">
+              <p class="t-body on-light">有完整的設計系統，才能創造品牌信任感、兼顧設計與開發效率：</p>
+              <ul class="inline-list">
+                <li class="t-body on-light">品牌主色、功能色</li>
+                <li class="t-body on-light">中英字體使用</li>
+                <li class="t-body on-light">視覺風格與元素</li>
+              </ul>
+            </div>
+            <div class="img-text__image">
+              <div class="img-wrap img-wrap--browser">
+                <div class="browser-chrome">
+                  <div class="browser-dots">
+                    <div class="browser-dot browser-dot--r"></div>
+                    <div class="browser-dot browser-dot--y"></div>
+                    <div class="browser-dot browser-dot--g"></div>
+                  </div>
+                  <div class="browser-bar"></div>
+                </div>
+                <div class="browser-body">
+                  <img src="assets/p23-brand-guideline.png" alt="brand-guideline.md in VS Code" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════ 24. IMAGE + TEXT — 撰寫 coding-guideline.md ═══════════ -->
+  <div class="slide-group">
+    <p class="slide-label">Page 24</p>
+    <div class="slide-wrap">
+      <div class="slide slide--light on-light">
+        <div class="inner">
+          <div class="page-header">
+            <h2 class="t-page-title on-light">撰寫 coding-guideline.md</h2>
+          </div>
+          <div class="img-text-layout img-text-layout--wide">
+            <div class="img-text__content">
+              <p class="t-body on-light">用我粗淺的知識寫下的規範：</p>
+              <ul class="inline-list">
+                <li class="t-body on-light">新建專案時，HTML/CSS/JS 要分離</li>
+                <li class="t-body on-light">CSS 要自動抓 color token.css</li>
+                <li class="t-body on-light">CSS class 要語意化命名</li>
+                <li class="t-body on-light">CSS 單位為 px/rem，數值遵照 4px grid</li>
+              </ul>
+            </div>
+            <div class="img-text__image">
+              <div class="img-wrap img-wrap--browser">
+                <div class="browser-chrome">
+                  <div class="browser-dots">
+                    <div class="browser-dot browser-dot--r"></div>
+                    <div class="browser-dot browser-dot--y"></div>
+                    <div class="browser-dot browser-dot--g"></div>
+                  </div>
+                  <div class="browser-bar"></div>
+                </div>
+                <div class="browser-body">
+                  <img src="assets/p24-coding-guideline.png" alt="coding-guideline.md in VS Code" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- Present button -->
   <button class="present-btn" id="presentBtn">
@@ -205,73 +714,9 @@
   </div>
 
   <script>
-  (function () {
-    const slides = Array.from(document.querySelectorAll('.slide-wrap .slide'));
-    let cur = 0;
-
-    const overlay    = document.getElementById('presentOverlay');
-    const stage      = document.getElementById('presentStage');
-    const prevZone   = document.getElementById('prevZone');
-    const nextZone   = document.getElementById('nextZone');
-    const cursor     = document.getElementById('presentCursor');
-
-    function scaleStage() {
-      const s = Math.min(window.innerWidth / 1920, window.innerHeight / 1080);
-      stage.style.transform = `scale(${s})`;
-    }
-
-    function show(i) {
-      cur = Math.max(0, Math.min(i, slides.length - 1));
-      stage.innerHTML = '';
-      stage.appendChild(slides[cur].cloneNode(true));
-      lucide.createIcons({ node: stage });
-      scaleStage();
-    }
-
-    function enter() {
-      overlay.classList.add('active');
-      show(cur);
-      document.body.style.overflow = 'hidden';
-      document.documentElement.requestFullscreen().catch(() => {});
-    }
-
-    function exit() {
-      overlay.classList.remove('active');
-      document.body.style.overflow = '';
-      if (document.fullscreenElement) document.exitFullscreen().catch(() => {});
-    }
-
-    document.getElementById('presentBtn').addEventListener('click', enter);
-    prevZone.addEventListener('click', () => show(cur - 1));
-    nextZone.addEventListener('click', () => show(cur + 1));
-
-    document.addEventListener('keydown', (e) => {
-      if (!overlay.classList.contains('active')) return;
-      if (e.key === 'Escape') exit();
-      if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') { e.preventDefault(); show(cur + 1); }
-      if (e.key === 'ArrowLeft'  || e.key === 'PageUp') { e.preventDefault(); show(cur - 1); }
-    });
-
-    document.addEventListener('fullscreenchange', () => {
-      if (!document.fullscreenElement) exit();
-    });
-
-    window.addEventListener('resize', () => {
-      if (overlay.classList.contains('active')) scaleStage();
-    });
-
-    // Cursor spotlight
-    let cursorTimer;
-    overlay.addEventListener('mousemove', (e) => {
-      cursor.style.left = e.clientX + 'px';
-      cursor.style.top  = e.clientY + 'px';
-      cursor.classList.remove('hidden');
-      clearTimeout(cursorTimer);
-      cursorTimer = setTimeout(() => cursor.classList.add('hidden'), 1500);
-    });
-
-    lucide.createIcons({ node: document.getElementById('presentBtn') });
-  })();
+    lucide.createIcons();
+    initPieCharts(document);
+    initPresent();
   </script>
 </body>
 </html>
