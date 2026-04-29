@@ -15,6 +15,8 @@
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
+::selection { background: var(--gold-200); color: var(--gray-900); }
+
 body {
   background: var(--gold-200);
   font-family: 'Noto Sans TC', sans-serif;
@@ -167,8 +169,8 @@ body {
 .t-card-tag {
   font-family: 'Noto Serif TC', serif;
   font-weight: 700;
-  font-size: 44px;
-  line-height: 1.4;
+  font-size: 36px;
+  line-height: 1;
 }
 .card.on-light .t-card-tag { color: var(--gray-900); }
 .card.on-dark  .t-card-tag { color: var(--gold-100); }
@@ -420,8 +422,9 @@ body {
   flex-direction: column;
   gap: 24px;
 }
-.card.on-light { border-color: var(--gold-300); background: var(--gold-50); }
-.card.on-dark  { border-color: var(--gold-700); background: var(--gold-800); }
+.card.on-light            { border-color: var(--gold-300); background: var(--gold-50); }
+.card.on-light.card--warm { border-color: var(--gold-400); background: var(--gold-200); }
+.card.on-dark             { border-color: var(--gold-700); background: var(--gold-800); }
 
 .card__icon {
   width: 64px;
@@ -584,6 +587,9 @@ body {
 .inner:has(.img-only-layout .img-wrap--browser) .page-header         { margin-bottom: 12px; }
 .inner:has(.img-only-layout .img-wrap--browser) > .t-body            { margin-bottom: 24px; }
 .inner:has(.img-only-layout .img-wrap--browser) .browser-body img    { object-position: top; }
+.inner:has(.img-only-layout .img-wrap--plain) .page-header           { margin-bottom: 0; }
+.inner:has(.img-only-layout .img-wrap--plain) .img-only-layout        { margin-top: 24px; }
+.inner:has(.img-only-layout .img-wrap--plain) > .t-body              { margin-top: 12px; }
 
 .img-only-layout {
   flex: 1;
@@ -619,15 +625,16 @@ body {
 .on-light .img-wrap--plain .img-placeholder { background: var(--gold-200); }
 .on-dark  .img-wrap--plain .img-placeholder { background: var(--gold-800); }
 
+.img-wrap--plain {
+  border: 1px solid var(--gray-900);
+}
+
 .img-wrap--plain img {
   flex: 1;
   width: 100%;
   object-fit: cover;
   display: block;
 }
-
-.img-wrap--bordered { border: 1px solid var(--gray-900); }
-.img-wrap--contain img { object-fit: cover; }
 .img-wrap--ratio-3-4  { flex: none; aspect-ratio: 3/4;  height: 100%; width: auto; }
 .img-wrap--ratio-16-9 { flex: none; aspect-ratio: 16/9; height: 100%; width: auto; max-width: 100%; }
 
