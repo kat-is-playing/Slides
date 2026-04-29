@@ -14,6 +14,18 @@
 </head>
 <body>
 
+  <header class="viewer-header">
+    <div class="seg-ctrl">
+      <button class="seg-btn seg-btn--active" data-view="list"><i data-lucide="align-justify"></i>列表</button>
+      <button class="seg-btn" data-view="grid"><i data-lucide="layout-grid"></i>格狀</button>
+    </div>
+    <button class="present-btn" id="presentBtn">
+      <i data-lucide="monitor-play"></i> 簡報模式
+    </button>
+  </header>
+
+  <div class="slide-container">
+
   <!-- ═══════════ 1. COVER ═══════════ -->
   <div class="slide-group">
     <p class="slide-label">Page 1</p>
@@ -59,6 +71,11 @@
               <span class="agenda-item__num">03</span>
               <span class="agenda-item__star">✦</span>
               <span class="t-agenda-text on-light">告訴員工你的品牌規範和標準</span>
+            </li>
+            <li class="agenda-item">
+              <span class="agenda-item__num">04</span>
+              <span class="agenda-item__star">✦</span>
+              <span class="t-agenda-text on-light">跟員工一起創造了什麼</span>
             </li>
           </ul>
         </div>
@@ -660,9 +677,99 @@
     </div>
   </div>
 
-  <!-- ═══════════ 24. IMAGE + TEXT — 撰寫 coding-guideline.md ═══════════ -->
+  <!-- ═══════════ 24. IMAGE ONLY — 色彩系統 ═══════════ -->
   <div class="slide-group">
     <p class="slide-label">Page 24</p>
+    <div class="slide-wrap">
+      <div class="slide slide--light on-light">
+        <div class="inner">
+          <div class="page-header">
+            <h2 class="t-page-title on-light">色彩系統</h2>
+          </div>
+          <p class="t-body on-light">可以提供主色後，自動產出完整色盤、搭配的功能色。</p>
+          <div class="img-only-layout">
+            <div class="img-wrap img-wrap--browser">
+              <div class="browser-chrome">
+                <div class="browser-dots">
+                  <div class="browser-dot browser-dot--r"></div>
+                  <div class="browser-dot browser-dot--y"></div>
+                  <div class="browser-dot browser-dot--g"></div>
+                </div>
+                <div class="browser-bar"></div>
+              </div>
+              <div class="browser-body">
+                <img src="assets/p25-color.png" alt="色彩系統" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════ 25. IMAGE ONLY — 字型系統 ═══════════ -->
+  <div class="slide-group">
+    <p class="slide-label">Page 25</p>
+    <div class="slide-wrap">
+      <div class="slide slide--light on-light">
+        <div class="inner">
+          <div class="page-header">
+            <h2 class="t-page-title on-light">字型系統</h2>
+          </div>
+          <p class="t-body on-light">在 Google Font 上挑選自己喜歡的字型，或是請 Claude 推薦也可以。</p>
+          <div class="img-only-layout">
+            <div class="img-wrap img-wrap--browser">
+              <div class="browser-chrome">
+                <div class="browser-dots">
+                  <div class="browser-dot browser-dot--r"></div>
+                  <div class="browser-dot browser-dot--y"></div>
+                  <div class="browser-dot browser-dot--g"></div>
+                </div>
+                <div class="browser-bar"></div>
+              </div>
+              <div class="browser-body">
+                <img src="assets/p26-font.png" alt="字型系統" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════ 26. IMAGE ONLY — Icon ═══════════ -->
+  <div class="slide-group">
+    <p class="slide-label">Page 26</p>
+    <div class="slide-wrap">
+      <div class="slide slide--light on-light">
+        <div class="inner">
+          <div class="page-header">
+            <h2 class="t-page-title on-light">Icon</h2>
+          </div>
+          <p class="t-body on-light">挑選開源 Icon 資料庫，自動根據內容選擇合適 Icon。</p>
+          <div class="img-only-layout">
+            <div class="img-wrap img-wrap--browser">
+              <div class="browser-chrome">
+                <div class="browser-dots">
+                  <div class="browser-dot browser-dot--r"></div>
+                  <div class="browser-dot browser-dot--y"></div>
+                  <div class="browser-dot browser-dot--g"></div>
+                </div>
+                <div class="browser-bar"></div>
+              </div>
+              <div class="browser-body">
+                <img src="assets/p26-icon.png" alt="Icon 系統" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════ 27. IMAGE + TEXT — 撰寫 coding-guideline.md ═══════════ -->
+  <div class="slide-group">
+    <p class="slide-label">Page 27</p>
     <div class="slide-wrap">
       <div class="slide slide--light on-light">
         <div class="inner">
@@ -700,10 +807,120 @@
     </div>
   </div>
 
-  <!-- Present button -->
-  <button class="present-btn" id="presentBtn">
-    <i data-lucide="monitor-play"></i> 簡報模式
-  </button>
+  <!-- ═══════════ 28. SECTION DIVIDER — Part 4 ═══════════ -->
+  <div class="slide-group">
+    <p class="slide-label">Page 28</p>
+    <div class="slide-wrap">
+      <div class="slide slide--dark section-divider on-dark">
+        <div class="inner">
+          <div class="section-divider__row">
+            <span class="t-section-num">Part 4</span>
+            <div class="section-divider__line"></div>
+          </div>
+          <h2 class="t-section-title on-dark">跟員工一起創造了什麼</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════ 29. CARDS — 讓溝通更有效的小技巧 ═══════════ -->
+  <div class="slide-group">
+    <p class="slide-label">Page 29</p>
+    <div class="slide-wrap">
+      <div class="slide slide--warm on-light">
+        <div class="inner">
+          <div class="page-header">
+            <h2 class="t-page-title on-light">讓溝通更有效的小技巧</h2>
+          </div>
+          <div class="cards-grid">
+            <div class="card on-light">
+              <i data-lucide="sparkles" class="card__icon on-light"></i>
+              <div class="card__content">
+                <span class="t-card-tag">視情況切換 model</span>
+                <p class="t-card-body on-light">簡單輕量的任務交給 Sonnet，複雜有規模的任務交給 Opus，才能事半功倍。</p>
+              </div>
+            </div>
+            <div class="card on-light">
+              <i data-lucide="image" class="card__icon on-light"></i>
+              <div class="card__content">
+                <span class="t-card-tag">萬言比不上一圖</span>
+                <p class="t-card-body on-light">遇到比較難描述的情境或期待結果，直接貼圖片示意就好。</p>
+              </div>
+            </div>
+            <div class="card on-light">
+              <i data-lucide="message-square-code" class="card__icon on-light"></i>
+              <div class="card__content">
+                <span class="t-card-tag">靈活運用相關指令</span>
+                <p class="t-card-body on-light">context &gt;50% 用 <code>/clear</code>，執行中想問其他問題用 <code>/btw</code>。</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════ 30. IMAGE ONLY BROWSER ═══════════ -->
+  <div class="slide-group">
+    <p class="slide-label">Page 30</p>
+    <div class="slide-wrap">
+      <div class="slide slide--light on-light">
+        <div class="inner">
+          <div class="page-header">
+            <h2 class="t-page-title on-light">互動簡報模板</h2>
+          </div>
+          <p class="t-body on-light">建立常見的簡報版型，我只需要提供文字和圖片就能快速建立簡報。</p>
+          <div class="img-only-layout">
+            <div class="img-wrap img-wrap--browser">
+              <div class="browser-chrome">
+                <div class="browser-dots">
+                  <div class="browser-dot browser-dot--r"></div>
+                  <div class="browser-dot browser-dot--y"></div>
+                  <div class="browser-dot browser-dot--g"></div>
+                </div>
+                <div class="browser-bar"></div>
+              </div>
+              <div class="browser-body">
+                <img src="assets/p29-slide-template.png" alt="互動簡報模板" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════ 31. IMAGE ONLY BROWSER — 職涯諮詢官網 ═══════════ -->
+  <div class="slide-group">
+    <p class="slide-label">Page 31</p>
+    <div class="slide-wrap">
+      <div class="slide slide--light on-light">
+        <div class="inner">
+          <div class="page-header">
+            <h2 class="t-page-title on-light">職涯諮詢官網</h2>
+          </div>
+          <p class="t-body on-light">讓有興趣的人更了解我的服務價值、特色、流程。</p>
+          <div class="img-only-layout">
+            <div class="img-wrap img-wrap--browser">
+              <div class="browser-chrome">
+                <div class="browser-dots">
+                  <div class="browser-dot browser-dot--r"></div>
+                  <div class="browser-dot browser-dot--y"></div>
+                  <div class="browser-dot browser-dot--g"></div>
+                </div>
+                <div class="browser-bar"></div>
+              </div>
+              <div class="browser-body browser-body--scroll">
+                <img src="assets/p31-careercoach.png" alt="職涯諮詢官網" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  </div><!-- /slide-container -->
 
   <!-- Present overlay -->
   <div class="present-overlay" id="presentOverlay">
@@ -711,12 +928,18 @@
     <div class="present-zone present-zone--prev" id="prevZone"></div>
     <div class="present-zone present-zone--next" id="nextZone"></div>
     <div class="present-cursor hidden" id="presentCursor"></div>
+    <div id="presentProgress">
+      <div id="progressTooltip"><div id="progressThumb"></div></div>
+      <div id="progressBar"><div id="progressFill"></div></div>
+      <div id="progressNum"></div>
+    </div>
   </div>
 
   <script>
     lucide.createIcons();
     initPieCharts(document);
     initPresent();
+    initViewToggle();
   </script>
 </body>
 </html>
