@@ -10,12 +10,25 @@
   <link rel="stylesheet" href="../../tokens.css" />
   <link rel="stylesheet" href="./slide.css" />
   <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+  <script src="./slide.js"></script>
 </head>
 <body>
 
+  <header class="viewer-header">
+    <div class="seg-ctrl">
+      <button class="seg-btn seg-btn--active" data-view="list"><i data-lucide="align-justify"></i>列表</button>
+      <button class="seg-btn" data-view="grid"><i data-lucide="layout-grid"></i>格狀</button>
+    </div>
+    <button class="present-btn" id="presentBtn">
+      <i data-lucide="monitor-play"></i> 簡報模式
+    </button>
+  </header>
+
+  <div class="slide-container">
+
   <!-- ═══════════ 1. COVER（深色）═══════════ -->
   <div class="slide-group">
-    <p class="slide-label">1 — Cover（深色）</p>
+    <p class="slide-label">Cover</p>
     <div class="slide-wrap">
       <div class="slide slide--dark cover on-dark">
         <div class="cover__bg">
@@ -36,7 +49,7 @@
 
   <!-- ═══════════ 2. AGENDA（淺色）═══════════ -->
   <div class="slide-group">
-    <p class="slide-label">2 — Agenda（淺色）</p>
+    <p class="slide-label">Agenda</p>
     <div class="slide-wrap">
       <div class="slide slide--light on-light">
         <div class="inner">
@@ -77,7 +90,7 @@
 
   <!-- ═══════════ 3. SECTION DIVIDER（深色）═══════════ -->
   <div class="slide-group">
-    <p class="slide-label">3 — Section Divider（深色）</p>
+    <p class="slide-label">Section Divider</p>
     <div class="slide-wrap">
       <div class="slide slide--dark section-divider on-dark">
         <div class="inner">
@@ -94,7 +107,7 @@
 
   <!-- ═══════════ 4. CARDS（淺色）═══════════ -->
   <div class="slide-group">
-    <p class="slide-label">4 — Cards（淺色）</p>
+    <p class="slide-label">Cards</p>
     <div class="slide-wrap">
       <div class="slide slide--light on-light">
         <div class="inner">
@@ -131,7 +144,7 @@
 
   <!-- ═══════════ 4b. CARDS（深色）═══════════ -->
   <div class="slide-group">
-    <p class="slide-label">4 — Cards（深色）</p>
+    <p class="slide-label">Cards</p>
     <div class="slide-wrap">
       <div class="slide slide--dark on-dark">
         <div class="inner">
@@ -168,7 +181,7 @@
 
   <!-- ═══════════ 4c. CARDS 2×2（淺色）═══════════ -->
   <div class="slide-group">
-    <p class="slide-label">4 — Cards 2×2（淺色）</p>
+    <p class="slide-label">Cards 2×2</p>
     <div class="slide-wrap">
       <div class="slide slide--light on-light">
         <div class="inner">
@@ -212,7 +225,7 @@
 
   <!-- ═══════════ 4d. CARDS 2×2（深色）═══════════ -->
   <div class="slide-group">
-    <p class="slide-label">4 — Cards 2×2（深色）</p>
+    <p class="slide-label">Cards 2×2</p>
     <div class="slide-wrap">
       <div class="slide slide--dark on-dark">
         <div class="inner">
@@ -256,7 +269,7 @@
 
   <!-- ═══════════ 5. PIE CHART（淺色）═══════════ -->
   <div class="slide-group">
-    <p class="slide-label">5 — Pie Chart（淺色）</p>
+    <p class="slide-label">Pie Chart</p>
     <div class="slide-wrap">
       <div class="slide slide--light on-light">
         <div class="inner">
@@ -292,7 +305,7 @@
 
   <!-- ═══════════ 5b. PIE CHART（深色）═══════════ -->
   <div class="slide-group">
-    <p class="slide-label">5 — Pie Chart（深色）</p>
+    <p class="slide-label">Pie Chart</p>
     <div class="slide-wrap">
       <div class="slide slide--dark on-dark">
         <div class="inner">
@@ -328,7 +341,7 @@
 
   <!-- ═══════════ 6. IMAGE + TEXT, Plain（淺色）═══════════ -->
   <div class="slide-group">
-    <p class="slide-label">6 — Image + Text, Plain（淺色）</p>
+    <p class="slide-label">Image + Text</p>
     <div class="slide-wrap">
       <div class="slide slide--light on-light">
         <div class="img-plain-panel">
@@ -350,9 +363,33 @@
     </div>
   </div>
 
+  <!-- ═══════════ 6c. IMAGE + TEXT, Plain（深色）═══════════ -->
+  <div class="slide-group">
+    <p class="slide-label">Image + Text</p>
+    <div class="slide-wrap">
+      <div class="slide slide--dark on-dark">
+        <div class="img-plain-panel">
+          <div class="img-placeholder">
+            <span class="t-caption on-dark">圖片放這裡</span>
+          </div>
+        </div>
+        <div class="inner inner--img-plain">
+          <div class="page-header">
+            <h2 class="t-page-title on-dark">圖文說明標題</h2>
+          </div>
+          <div class="img-text__content">
+            <p class="t-body on-dark">這裡放左側的說明文字。可以是圖片的背景脈絡、研究結論，或你想讓觀眾特別注意的細節。</p>
+            <p class="t-body on-dark">第二段說明文字，補充更多細節或對比資訊。</p>
+            <p class="t-caption on-dark">資料來源：Author, Year</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- ═══════════ 6b. IMAGE + TEXT, Browser（淺色）═══════════ -->
   <div class="slide-group">
-    <p class="slide-label">6 — Image + Text, Browser Frame（淺色）</p>
+    <p class="slide-label">Image + Text, Browser</p>
     <div class="slide-wrap">
       <div class="slide slide--light on-light">
         <div class="inner">
@@ -386,33 +423,9 @@
     </div>
   </div>
 
-  <!-- ═══════════ 6c. IMAGE + TEXT, Plain（深色）═══════════ -->
-  <div class="slide-group">
-    <p class="slide-label">6 — Image + Text, Plain（深色）</p>
-    <div class="slide-wrap">
-      <div class="slide slide--dark on-dark">
-        <div class="img-plain-panel">
-          <div class="img-placeholder">
-            <span class="t-caption on-dark">圖片放這裡</span>
-          </div>
-        </div>
-        <div class="inner inner--img-plain">
-          <div class="page-header">
-            <h2 class="t-page-title on-dark">圖文說明標題</h2>
-          </div>
-          <div class="img-text__content">
-            <p class="t-body on-dark">這裡放左側的說明文字。可以是圖片的背景脈絡、研究結論，或你想讓觀眾特別注意的細節。</p>
-            <p class="t-body on-dark">第二段說明文字，補充更多細節或對比資訊。</p>
-            <p class="t-caption on-dark">資料來源：Author, Year</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
   <!-- ═══════════ 6d. IMAGE + TEXT, Browser（深色）═══════════ -->
   <div class="slide-group">
-    <p class="slide-label">6 — Image + Text, Browser Frame（深色）</p>
+    <p class="slide-label">Image + Text, Browser</p>
     <div class="slide-wrap">
       <div class="slide slide--dark on-dark">
         <div class="inner">
@@ -448,15 +461,16 @@
 
   <!-- ═══════════ 7. IMAGE ONLY, Plain（淺色）═══════════ -->
   <div class="slide-group">
-    <p class="slide-label">7 — Image Only, Plain（淺色）</p>
+    <p class="slide-label">Image Only</p>
     <div class="slide-wrap">
       <div class="slide slide--light on-light">
         <div class="inner">
           <div class="page-header">
             <h2 class="t-page-title on-light">圖片展示標題</h2>
           </div>
+          <p class="slide-desc t-body on-light">輔助說明文字放在這裡，一句話摘要重點。</p>
           <div class="img-only-layout">
-            <div class="img-wrap img-wrap--plain">
+            <div class="img-wrap img-wrap--plain img-wrap--bordered img-wrap--ratio-16-9">
               <div class="img-placeholder">
                 <span class="t-caption on-light">圖片放這裡</span>
               </div>
@@ -467,9 +481,31 @@
     </div>
   </div>
 
+  <!-- ═══════════ 7c. IMAGE ONLY, Plain（深色）═══════════ -->
+  <div class="slide-group">
+    <p class="slide-label">Image Only</p>
+    <div class="slide-wrap">
+      <div class="slide slide--dark on-dark">
+        <div class="inner">
+          <div class="page-header">
+            <h2 class="t-page-title on-dark">圖片展示標題</h2>
+          </div>
+          <p class="slide-desc t-body on-dark">輔助說明文字放在這裡，一句話摘要重點。</p>
+          <div class="img-only-layout">
+            <div class="img-wrap img-wrap--plain img-wrap--bordered img-wrap--ratio-16-9">
+              <div class="img-placeholder">
+                <span class="t-caption on-dark">圖片放這裡</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- ═══════════ 7b. IMAGE ONLY, Browser（淺色）═══════════ -->
   <div class="slide-group">
-    <p class="slide-label">7 — Image Only, Browser Frame（淺色）</p>
+    <p class="slide-label">Image Only, Browser</p>
     <div class="slide-wrap">
       <div class="slide slide--light on-light">
         <div class="inner">
@@ -496,19 +532,27 @@
     </div>
   </div>
 
-  <!-- ═══════════ 7c. IMAGE ONLY, Plain（深色）═══════════ -->
+  <!-- ═══════════ 7d. IMAGE ONLY, Browser（深色）═══════════ -->
   <div class="slide-group">
-    <p class="slide-label">7 — Image Only, Plain（深色）</p>
+    <p class="slide-label">Image Only, Browser</p>
     <div class="slide-wrap">
       <div class="slide slide--dark on-dark">
         <div class="inner">
           <div class="page-header">
-            <h2 class="t-page-title on-dark">圖片展示標題</h2>
+            <h2 class="t-page-title on-dark">網頁截圖全版</h2>
           </div>
           <div class="img-only-layout">
-            <div class="img-wrap img-wrap--plain">
-              <div class="img-placeholder">
-                <span class="t-caption on-dark">圖片放這裡</span>
+            <div class="img-wrap img-wrap--browser">
+              <div class="browser-chrome">
+                <div class="browser-dots">
+                  <div class="browser-dot browser-dot--r"></div>
+                  <div class="browser-dot browser-dot--y"></div>
+                  <div class="browser-dot browser-dot--g"></div>
+                </div>
+                <div class="browser-bar"></div>
+              </div>
+              <div class="browser-body">
+                <span class="t-caption on-dark">截圖放這裡</span>
               </div>
             </div>
           </div>
@@ -519,7 +563,7 @@
 
   <!-- ═══════════ 7. IMAGE ONLY, Plain 2-up（淺色）═══════════ -->
   <div class="slide-group">
-    <p class="slide-label">7 — Image Only, Plain 2-up（淺色）</p>
+    <p class="slide-label">Image Only, 2-up</p>
     <div class="slide-wrap">
       <div class="slide slide--light on-light">
         <div class="inner">
@@ -543,9 +587,35 @@
     </div>
   </div>
 
+  <!-- ═══════════ 7. IMAGE ONLY, Plain 2-up（深色）═══════════ -->
+  <div class="slide-group">
+    <p class="slide-label">Image Only, 2-up</p>
+    <div class="slide-wrap">
+      <div class="slide slide--dark on-dark">
+        <div class="inner">
+          <div class="page-header">
+            <h2 class="t-page-title on-dark">圖片展示標題</h2>
+          </div>
+          <div class="img-only-layout">
+            <div class="img-wrap img-wrap--plain">
+              <div class="img-placeholder">
+                <span class="t-caption on-dark">圖片 1</span>
+              </div>
+            </div>
+            <div class="img-wrap img-wrap--plain">
+              <div class="img-placeholder">
+                <span class="t-caption on-dark">圖片 2</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- ═══════════ 7. IMAGE ONLY, Plain 3-up（淺色）═══════════ -->
   <div class="slide-group">
-    <p class="slide-label">7 — Image Only, Plain 3-up（淺色）</p>
+    <p class="slide-label">Image Only, 3-up</p>
     <div class="slide-wrap">
       <div class="slide slide--light on-light">
         <div class="inner">
@@ -574,35 +644,9 @@
     </div>
   </div>
 
-  <!-- ═══════════ 7. IMAGE ONLY, Plain 2-up（深色）═══════════ -->
-  <div class="slide-group">
-    <p class="slide-label">7 — Image Only, Plain 2-up（深色）</p>
-    <div class="slide-wrap">
-      <div class="slide slide--dark on-dark">
-        <div class="inner">
-          <div class="page-header">
-            <h2 class="t-page-title on-dark">圖片展示標題</h2>
-          </div>
-          <div class="img-only-layout">
-            <div class="img-wrap img-wrap--plain">
-              <div class="img-placeholder">
-                <span class="t-caption on-dark">圖片 1</span>
-              </div>
-            </div>
-            <div class="img-wrap img-wrap--plain">
-              <div class="img-placeholder">
-                <span class="t-caption on-dark">圖片 2</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
   <!-- ═══════════ 7. IMAGE ONLY, Plain 3-up（深色）═══════════ -->
   <div class="slide-group">
-    <p class="slide-label">7 — Image Only, Plain 3-up（深色）</p>
+    <p class="slide-label">Image Only, 3-up</p>
     <div class="slide-wrap">
       <div class="slide slide--dark on-dark">
         <div class="inner">
@@ -631,38 +675,9 @@
     </div>
   </div>
 
-  <!-- ═══════════ 7d. IMAGE ONLY, Browser（深色）═══════════ -->
-  <div class="slide-group">
-    <p class="slide-label">7 — Image Only, Browser Frame（深色）</p>
-    <div class="slide-wrap">
-      <div class="slide slide--dark on-dark">
-        <div class="inner">
-          <div class="page-header">
-            <h2 class="t-page-title on-dark">網頁截圖全版</h2>
-          </div>
-          <div class="img-only-layout">
-            <div class="img-wrap img-wrap--browser">
-              <div class="browser-chrome">
-                <div class="browser-dots">
-                  <div class="browser-dot browser-dot--r"></div>
-                  <div class="browser-dot browser-dot--y"></div>
-                  <div class="browser-dot browser-dot--g"></div>
-                </div>
-                <div class="browser-bar"></div>
-              </div>
-              <div class="browser-body">
-                <span class="t-caption on-dark">截圖放這裡</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
   <!-- ═══════════ 8. LIST（淺色）═══════════ -->
   <div class="slide-group">
-    <p class="slide-label">8 — List（淺色）</p>
+    <p class="slide-label">List</p>
     <div class="slide-wrap">
       <div class="slide slide--light on-light">
         <div class="inner">
@@ -699,7 +714,7 @@
 
   <!-- ═══════════ 8b. LIST（深色）═══════════ -->
   <div class="slide-group">
-    <p class="slide-label">8 — List（深色）</p>
+    <p class="slide-label">List</p>
     <div class="slide-wrap">
       <div class="slide slide--dark on-dark">
         <div class="inner">
@@ -736,7 +751,7 @@
 
   <!-- ═══════════ 9. QUOTE（淺色）═══════════ -->
   <div class="slide-group">
-    <p class="slide-label">9 — Quote（淺色）</p>
+    <p class="slide-label">Quote</p>
     <div class="slide-wrap">
       <div class="slide slide--light on-light">
         <div class="inner">
@@ -756,7 +771,7 @@
 
   <!-- ═══════════ 9b. QUOTE（深色）═══════════ -->
   <div class="slide-group">
-    <p class="slide-label">9 — Quote（深色）</p>
+    <p class="slide-label">Quote</p>
     <div class="slide-wrap">
       <div class="slide slide--dark on-dark">
         <div class="inner">
@@ -774,12 +789,77 @@
     </div>
   </div>
 
-  <script>lucide.createIcons();</script>
+  <!-- ═══════════ 10a. COMPARE TABLE（淺色）═══════════ -->
+  <div class="slide-group">
+    <p class="slide-label">Compare Table</p>
+    <div class="slide-wrap">
+      <div class="slide slide--light on-light">
+        <div class="inner">
+          <div class="page-header">
+            <h2 class="t-page-title on-light">投影片標題</h2>
+          </div>
+          <div class="compare-layout">
+            <div class="compare-table">
+              <div class="compare-row compare-row--header">
+                <span class="compare-cell"><i data-lucide="user"></i>左欄標題 (Left Header)</span>
+                <span class="compare-cell"><i data-lucide="bot"></i>右欄標題 (Right Header)</span>
+              </div>
+              <div class="compare-row">
+                <span class="compare-cell">項目一 (item one)</span>
+                <span class="compare-cell">項目 A (item A)</span>
+              </div>
+              <div class="compare-row">
+                <span class="compare-cell">項目二 (item two)</span>
+                <span class="compare-cell">項目 B (item B)</span>
+              </div>
+              <div class="compare-row">
+                <span class="compare-cell">項目三 (item three)</span>
+                <span class="compare-cell">項目 C (item C)</span>
+              </div>
+            </div>
+            <p class="compare-source on-light">— 來源說明</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
-  <!-- Present button -->
-  <button class="present-btn" id="presentBtn">
-    <i data-lucide="monitor-play"></i> 簡報模式
-  </button>
+  <!-- ═══════════ 10b. COMPARE TABLE（深色）═══════════ -->
+  <div class="slide-group">
+    <p class="slide-label">Compare Table</p>
+    <div class="slide-wrap">
+      <div class="slide slide--dark on-dark">
+        <div class="inner">
+          <div class="page-header">
+            <h2 class="t-page-title on-dark">投影片標題</h2>
+          </div>
+          <div class="compare-layout">
+            <div class="compare-table">
+              <div class="compare-row compare-row--header">
+                <span class="compare-cell"><i data-lucide="user"></i>左欄標題 (Left Header)</span>
+                <span class="compare-cell"><i data-lucide="bot"></i>右欄標題 (Right Header)</span>
+              </div>
+              <div class="compare-row">
+                <span class="compare-cell">項目一 (item one)</span>
+                <span class="compare-cell">項目 A (item A)</span>
+              </div>
+              <div class="compare-row">
+                <span class="compare-cell">項目二 (item two)</span>
+                <span class="compare-cell">項目 B (item B)</span>
+              </div>
+              <div class="compare-row">
+                <span class="compare-cell">項目三 (item three)</span>
+                <span class="compare-cell">項目 C (item C)</span>
+              </div>
+            </div>
+            <p class="compare-source on-dark">— 來源說明</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  </div><!-- /slide-container -->
 
   <!-- Present overlay -->
   <div class="present-overlay" id="presentOverlay">
@@ -787,76 +867,18 @@
     <div class="present-zone present-zone--prev" id="prevZone"></div>
     <div class="present-zone present-zone--next" id="nextZone"></div>
     <div class="present-cursor hidden" id="presentCursor"></div>
+    <div id="presentProgress">
+      <div id="progressTooltip"><div id="progressThumb"></div></div>
+      <div id="progressBar"><div id="progressFill"></div></div>
+      <div id="progressNum"></div>
+    </div>
   </div>
 
   <script>
-  (function () {
-    const slides = Array.from(document.querySelectorAll('.slide-wrap .slide'));
-    let cur = 0;
-
-    const overlay    = document.getElementById('presentOverlay');
-    const stage      = document.getElementById('presentStage');
-    const prevZone   = document.getElementById('prevZone');
-    const nextZone   = document.getElementById('nextZone');
-    const cursor     = document.getElementById('presentCursor');
-
-    function scaleStage() {
-      const s = Math.min(window.innerWidth / 1920, window.innerHeight / 1080);
-      stage.style.transform = `scale(${s})`;
-    }
-
-    function show(i) {
-      cur = Math.max(0, Math.min(i, slides.length - 1));
-      stage.innerHTML = '';
-      stage.appendChild(slides[cur].cloneNode(true));
-      lucide.createIcons({ node: stage });
-      scaleStage();
-    }
-
-    function enter() {
-      overlay.classList.add('active');
-      show(cur);
-      document.body.style.overflow = 'hidden';
-      document.documentElement.requestFullscreen().catch(() => {});
-    }
-
-    function exit() {
-      overlay.classList.remove('active');
-      document.body.style.overflow = '';
-      if (document.fullscreenElement) document.exitFullscreen().catch(() => {});
-    }
-
-    document.getElementById('presentBtn').addEventListener('click', enter);
-    prevZone.addEventListener('click', () => show(cur - 1));
-    nextZone.addEventListener('click', () => show(cur + 1));
-
-    document.addEventListener('keydown', (e) => {
-      if (!overlay.classList.contains('active')) return;
-      if (e.key === 'Escape') exit();
-      if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') { e.preventDefault(); show(cur + 1); }
-      if (e.key === 'ArrowLeft'  || e.key === 'PageUp') { e.preventDefault(); show(cur - 1); }
-    });
-
-    document.addEventListener('fullscreenchange', () => {
-      if (!document.fullscreenElement) exit();
-    });
-
-    window.addEventListener('resize', () => {
-      if (overlay.classList.contains('active')) scaleStage();
-    });
-
-    // Cursor spotlight
-    let cursorTimer;
-    overlay.addEventListener('mousemove', (e) => {
-      cursor.style.left = e.clientX + 'px';
-      cursor.style.top  = e.clientY + 'px';
-      cursor.classList.remove('hidden');
-      clearTimeout(cursorTimer);
-      cursorTimer = setTimeout(() => cursor.classList.add('hidden'), 1500);
-    });
-
-    lucide.createIcons({ node: document.getElementById('presentBtn') });
-  })();
+    lucide.createIcons();
+    initPieCharts(document);
+    initPresent();
+    initViewToggle();
   </script>
 </body>
 </html>

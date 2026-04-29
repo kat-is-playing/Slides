@@ -106,12 +106,14 @@ function initPresent() {
     stage.style.zoom = s;
   }
 
-  function listItems() {
-    return Array.from(stage.querySelectorAll('.list-item'));
+  function stepItems() {
+    const list = Array.from(stage.querySelectorAll('.list-item'));
+    if (list.length) return list;
+    return Array.from(stage.querySelectorAll('.card'));
   }
 
   function applyStep() {
-    listItems().forEach((item, idx) => {
+    stepItems().forEach((item, idx) => {
       if (idx > step)        item.style.opacity = '0';
       else if (idx === step) item.style.opacity = '1';
       else                   item.style.opacity = '0.2';
@@ -129,7 +131,7 @@ function initPresent() {
     stage.appendChild(slides[cur].cloneNode(true));
     lucide.createIcons({ node: stage });
     initPieCharts(stage);
-    const items = listItems();
+    const items = stepItems();
     step = items.length > 0
       ? Math.min(startStep !== undefined ? startStep : 0, items.length - 1)
       : 0;
@@ -139,7 +141,7 @@ function initPresent() {
   }
 
   function goNext() {
-    const items = listItems();
+    const items = stepItems();
     if (items.length > 0 && step < items.length - 1) {
       step++;
       applyStep();
@@ -149,7 +151,7 @@ function initPresent() {
   }
 
   function goPrev() {
-    const items = listItems();
+    const items = stepItems();
     if (items.length > 0 && step > 0) {
       step--;
       applyStep();
