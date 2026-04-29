@@ -845,10 +845,9 @@ body {
 }
 
 .t-body code, .t-card-body code {
-  font-family: 'Noto Sans TC', monospace;
+  font-family: 'Google Sans Code', monospace;
   font-size: 0.875em;
   padding: 4px 12px;
-  font-family: monospace;
 }
 .on-light .t-body code, .on-light .t-card-body code { background: var(--red-100); color: var(--red-700); }
 .on-dark  .t-body code, .on-dark  .t-card-body code { background: var(--gold-700); color: var(--gold-100); }
