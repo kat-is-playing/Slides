@@ -310,6 +310,14 @@ body {
     var(--gold-900) 40px
   );
 }
+.cover__bg img,
+.cover__bg video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 
 .cover__bg .t-caption {
   opacity: 0.4;
