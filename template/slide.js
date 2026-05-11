@@ -261,7 +261,7 @@ function initPresent() {
       cursorTimer = setTimeout(() => cursor.classList.add('hidden'), 1500);
     }
     if (progress) {
-      progress.classList.toggle('visible', e.clientY > window.innerHeight - 200);
+      progress.classList.toggle('visible', e.clientY > window.innerHeight - 60);
     }
   });
 }
