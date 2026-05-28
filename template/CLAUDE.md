@@ -4,7 +4,7 @@
 
 - **Canvas 尺寸**：1920 × 1080 px（16:9 講座投影片）
 - **Preview 縮放**：50%，在瀏覽器顯示為 960 × 540
-- **設計系統**：載入 `../../tokens.css`（品牌 token）+ `./slide.css`（排版與元件）
+- **設計系統**：載入 `../template/tokens.css`（品牌 token）+ `./slide.css`（排版與元件）
 
 ---
 
@@ -25,7 +25,7 @@
 
 製作新投影片時，在 `100_Todo/projects/slides/` 下建立新子資料夾，HTML 引入：
 ```html
-<link rel="stylesheet" href="../../tokens.css" />
+<link rel="stylesheet" href="../template/tokens.css" />
 <link rel="stylesheet" href="../template/slide.css" />
 ```
 
