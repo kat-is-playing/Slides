@@ -271,11 +271,20 @@ function initPresent() {
 function initViewToggle() {
   const segBtns = document.querySelectorAll('.seg-btn[data-view]');
   const groups  = Array.from(document.querySelectorAll('.slide-group'));
+  const STORAGE_KEY = 'slide-view';
+
+  const applyView = (view) => {
+    segBtns.forEach(b => b.classList.toggle('seg-btn--active', b.dataset.view === view));
+    document.body.classList.toggle('view-grid', view === 'grid');
+  };
+
+  const saved = localStorage.getItem(STORAGE_KEY);
+  if (saved === 'grid' || saved === 'list') applyView(saved);
 
   segBtns.forEach(btn => {
     btn.addEventListener('click', () => {
-      segBtns.forEach(b => b.classList.toggle('seg-btn--active', b === btn));
-      document.body.classList.toggle('view-grid', btn.dataset.view === 'grid');
+      applyView(btn.dataset.view);
+      localStorage.setItem(STORAGE_KEY, btn.dataset.view);
     });
   });
 

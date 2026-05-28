@@ -68,9 +68,16 @@ body {
   position: relative;
 }
 
-.slide--light { background: var(--gold-50); }
-.slide--dark  { background: var(--gold-900); }
-.slide--warm  { background: var(--gold-100); }
+.slide--light  { background: var(--gold-50); }
+.slide--dark   { background: var(--gold-900); }
+.slide--warm   { background: var(--gold-100); }
+
+.slide__full-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 
 .inner {
   padding: 96px 112px;
@@ -170,7 +177,7 @@ body {
   font-family: 'Noto Serif TC', serif;
   font-weight: 700;
   font-size: 36px;
-  line-height: 1;
+  line-height: 1.5;
 }
 .card.on-light .t-card-tag { color: var(--gray-900); }
 .card.on-dark  .t-card-tag { color: var(--gold-100); }
@@ -611,6 +618,41 @@ body {
 .img-only-layout--col      { flex-direction: column; align-items: center; }
 .img-only-layout--centered { align-items: center; }
 
+.qr-layout {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 48px;
+}
+.qr-title {
+  font-family: 'Instrument Serif', serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 120px;
+  line-height: 1;
+  color: var(--gold-500);
+  text-align: center;
+  margin: 0;
+}
+.qr-code {
+  width: 420px;
+  height: 420px;
+  padding: 24px;
+  background: #fff;
+}
+.qr-code img { width: 100%; height: 100%; object-fit: contain; display: block; }
+
+.inner:has(.qr-layout)::before,
+.inner:has(.qr-layout)::after {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 1px;
+  background: var(--gold-500);
+}
+
 /* ════════════════════════════════════════════════
    IMAGE WRAPPERS
    ════════════════════════════════════════════════ */
@@ -831,9 +873,19 @@ body {
   gap: 8px;
 }
 
+.list-item__link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: var(--gold-500);
+  transition: color 0.2s;
+}
+.list-item__link:hover { color: var(--gold-700); }
+.list-item__link svg { width: 40px; height: 40px; stroke-width: 1.8; }
+
 .slide-tag {
   font-family: 'Instrument Serif', serif;
-  font-style: italic;
   font-size: 28px;
   line-height: 1;
   padding: 6px 20px;
@@ -852,13 +904,39 @@ body {
   padding: 10px 28px;
 }
 
-.t-body code, .t-card-body code {
+/* ════════════════════════════════════════════════
+   REFLECT — 三分鐘想一想 反思頁
+   ════════════════════════════════════════════════ */
+.inner:has(.reflect-content)::before,
+.inner:has(.reflect-content)::after {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 1px;
+  background: var(--gold-500);
+}
+.reflect-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 64px;
+}
+.reflect-content .t-page-title { max-width: 1400px; }
+
+.t-body code, .t-card-body code, .compare-cell code {
   font-family: 'Google Sans Code', monospace;
   font-size: 0.875em;
   padding: 4px 12px;
 }
-.on-light .t-body code, .on-light .t-card-body code { background: var(--red-100); color: var(--red-700); }
-.on-dark  .t-body code, .on-dark  .t-card-body code { background: var(--gold-700); color: var(--gold-100); }
+.compare-cell code { vertical-align: 0.15em; }
+.on-light .t-body code, .on-light .t-card-body code, .on-light .compare-cell code { background: var(--red-100); color: var(--red-700); }
+.on-dark  .t-body code, .on-dark  .t-card-body code, .on-dark  .compare-cell code { background: var(--gold-700); color: var(--gold-100); }
+
+code.code--purple { background: var(--purple-100) !important; color: var(--purple-700) !important; }
+code.code--yellow { background: var(--yellow-100) !important; color: var(--yellow-700) !important; }
 
 .inline-list {
   list-style: none;
@@ -875,6 +953,42 @@ body {
   font-size: 0.85em;
   margin-right: 8px;
 }
+
+.numbered-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 16px;
+  padding-left: 0;
+  counter-reset: numlist;
+}
+.numbered-list li {
+  counter-increment: numlist;
+}
+.numbered-list li::before {
+  content: counter(numlist) ". ";
+  color: var(--gold-500);
+  font-weight: 700;
+  margin-right: 8px;
+}
+
+.slide-link-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 16px;
+  font-family: 'Noto Sans TC', sans-serif;
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 1.4;
+  color: var(--gold-500);
+  text-decoration: none;
+  align-self: flex-start;
+  transition: color 0.2s;
+}
+.slide-link-btn svg { width: 32px; height: 32px; stroke-width: 1.8; flex-shrink: 0; }
+.slide-link-btn:hover { color: var(--gold-700); }
 
 /* ════════════════════════════════════════════════
    9. QUOTE
