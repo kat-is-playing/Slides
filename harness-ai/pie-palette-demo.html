@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Noto+Serif+TC:wght@300;400;700&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../template/tokens.css" />
+<link rel="stylesheet" href="../template/slide.css" />
+<style>
+  body { background: var(--gold-50); padding: 64px; font-family: 'Noto Sans TC', sans-serif; }
+  .demo-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; max-width: 1700px; margin: 0 auto; }
+  .demo-card { background: var(--gold-100); padding: 48px; }
+  .demo-card h3 { font-family: 'Noto Serif TC', serif; font-weight: 700; font-size: 32px; color: var(--gray-900); margin-bottom: 8px; }
+  .demo-card .hexes { font-family: 'Instrument Serif', serif; font-size: 20px; color: var(--gray-500); margin-bottom: 32px; }
+  /* shrink pie for demo grid */
+  .demo-card .pie-chart { width: 300px; height: 300px; }
+  .demo-card .pie-layout { gap: 48px; }
+  .demo-card .pie-legend { gap: 20px; }
+  .demo-card .pie-pct { font-size: 36px; width: 64px; }
+  .demo-card .pie-label { font-size: 18px; }
+  .demo-card .pie-swatch { width: 20px; height: 20px; }
+  .demo-card .pie-legend-item { gap: 18px; }
+</style>
+</head>
+<body>
+  <div class="demo-grid">
+
+    <!-- Plan A: 金色等距單色 -->
+    <div class="demo-card on-light" style="--chart-1:var(--gold-800);--chart-2:var(--gold-600);--chart-3:var(--gold-400);--chart-4:var(--gold-200);">
+      <h3>Plan A — 金色等距單色</h3>
+      <p class="hexes">gold 800 · 600 · 400 · 200</p>
+      <div class="pie-layout">
+        <div class="pie-chart-area"><div class="pie-chart pie-chart--4" style="--p1:34%;--p2:62%;--p3:86%;"></div></div>
+        <div class="pie-legend">
+          <div class="pie-legend-item"><div class="pie-swatch pie-swatch--1"></div><span class="pie-pct">34%</span><p class="pie-label on-light"><strong>工作流與設計整合</strong></p></div>
+          <div class="pie-legend-item"><div class="pie-swatch pie-swatch--2"></div><span class="pie-pct">28%</span><p class="pie-label on-light"><strong>AI 應用與協作</strong></p></div>
+          <div class="pie-legend-item"><div class="pie-swatch pie-swatch--3"></div><span class="pie-pct">24%</span><p class="pie-label on-light"><strong>心態與職涯定位</strong></p></div>
+          <div class="pie-legend-item"><div class="pie-swatch pie-swatch--4"></div><span class="pie-pct">14%</span><p class="pie-label on-light"><strong>學習策略與資源</strong></p></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Plan B: 金色 + 暖黃 accent -->
+    <div class="demo-card on-light" style="--chart-1:var(--gold-800);--chart-2:var(--gold-600);--chart-3:var(--gold-300);--chart-4:var(--yellow-300);">
+      <h3>Plan B — 金色 + 暖黃點綴</h3>
+      <p class="hexes">gold 800 · 600 · 300 + yellow 300</p>
+      <div class="pie-layout">
+        <div class="pie-chart-area"><div class="pie-chart pie-chart--4" style="--p1:34%;--p2:62%;--p3:86%;"></div></div>
+        <div class="pie-legend">
+          <div class="pie-legend-item"><div class="pie-swatch pie-swatch--1"></div><span class="pie-pct">34%</span><p class="pie-label on-light"><strong>工作流與設計整合</strong></p></div>
+          <div class="pie-legend-item"><div class="pie-swatch pie-swatch--2"></div><span class="pie-pct">28%</span><p class="pie-label on-light"><strong>AI 應用與協作</strong></p></div>
+          <div class="pie-legend-item"><div class="pie-swatch pie-swatch--3"></div><span class="pie-pct">24%</span><p class="pie-label on-light"><strong>心態與職涯定位</strong></p></div>
+          <div class="pie-legend-item"><div class="pie-swatch pie-swatch--4"></div><span class="pie-pct">14%</span><p class="pie-label on-light"><strong>學習策略與資源</strong></p></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Plan C: 金色 + 灰色 雙材質 -->
+    <div class="demo-card on-light" style="--chart-1:var(--gold-700);--chart-2:var(--gold-400);--chart-3:var(--gray-500);--chart-4:var(--gray-300);">
+      <h3>Plan C — 金色 + 灰色雙材質</h3>
+      <p class="hexes">gold 700 · 400 + gray 500 · 300</p>
+      <div class="pie-layout">
+        <div class="pie-chart-area"><div class="pie-chart pie-chart--4" style="--p1:34%;--p2:62%;--p3:86%;"></div></div>
+        <div class="pie-legend">
+          <div class="pie-legend-item"><div class="pie-swatch pie-swatch--1"></div><span class="pie-pct">34%</span><p class="pie-label on-light"><strong>工作流與設計整合</strong></p></div>
+          <div class="pie-legend-item"><div class="pie-swatch pie-swatch--2"></div><span class="pie-pct">28%</span><p class="pie-label on-light"><strong>AI 應用與協作</strong></p></div>
+          <div class="pie-legend-item"><div class="pie-swatch pie-swatch--3"></div><span class="pie-pct">24%</span><p class="pie-label on-light"><strong>心態與職涯定位</strong></p></div>
+          <div class="pie-legend-item"><div class="pie-swatch pie-swatch--4"></div><span class="pie-pct">14%</span><p class="pie-label on-light"><strong>學習策略與資源</strong></p></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Plan D: 大地色多色相 -->
+    <div class="demo-card on-light" style="--chart-1:var(--gold-700);--chart-2:var(--green-400);--chart-3:var(--blue-400);--chart-4:var(--yellow-400);">
+      <h3>Plan D — 大地色多色相</h3>
+      <p class="hexes">gold 700 · green 400 · blue 400 · yellow 400</p>
+      <div class="pie-layout">
+        <div class="pie-chart-area"><div class="pie-chart pie-chart--4" style="--p1:34%;--p2:62%;--p3:86%;"></div></div>
+        <div class="pie-legend">
+          <div class="pie-legend-item"><div class="pie-swatch pie-swatch--1"></div><span class="pie-pct">34%</span><p class="pie-label on-light"><strong>工作流與設計整合</strong></p></div>
+          <div class="pie-legend-item"><div class="pie-swatch pie-swatch--2"></div><span class="pie-pct">28%</span><p class="pie-label on-light"><strong>AI 應用與協作</strong></p></div>
+          <div class="pie-legend-item"><div class="pie-swatch pie-swatch--3"></div><span class="pie-pct">24%</span><p class="pie-label on-light"><strong>心態與職涯定位</strong></p></div>
+          <div class="pie-legend-item"><div class="pie-swatch pie-swatch--4"></div><span class="pie-pct">14%</span><p class="pie-label on-light"><strong>學習策略與資源</strong></p></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>
