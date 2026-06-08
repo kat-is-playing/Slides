@@ -536,9 +536,11 @@ body {
 .on-light .pie-swatch--1 { background: var(--chart-1); }
 .on-light .pie-swatch--2 { background: var(--chart-2); }
 .on-light .pie-swatch--3 { background: var(--chart-3); }
+.on-light .pie-swatch--4 { background: var(--chart-4); }
 .on-dark  .pie-swatch--1 { background: var(--chart-1-dark); }
 .on-dark  .pie-swatch--2 { background: var(--chart-2-dark); }
 .on-dark  .pie-swatch--3 { background: var(--chart-3-dark); }
+.on-dark  .pie-swatch--4 { background: var(--chart-4-dark); }
 
 .pie-pct {
   font-family: 'Instrument Serif', serif;
