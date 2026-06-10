@@ -93,6 +93,10 @@ function initPresent() {
   let cur = 0;
   let step = 0;
 
+  const isAudience = new URLSearchParams(location.search).get('role') === 'audience';
+  const channel = (isAudience && 'BroadcastChannel' in window)
+    ? new BroadcastChannel('slide-sync:' + location.pathname) : null;
+
   const overlay     = document.getElementById('presentOverlay');
   const stage       = document.getElementById('presentStage');
   const cursor      = document.getElementById('presentCursor');
@@ -167,17 +171,22 @@ function initPresent() {
     }
   }
 
-  function enter(startIdx) {
-    overlay.classList.add('active');
-    show(startIdx !== undefined ? startIdx : cur, 0);
-    document.body.style.overflow = 'hidden';
+  function requestFs() {
     const el = document.documentElement;
     const req = el.requestFullscreen || el.webkitRequestFullscreen;
     if (req && !document.fullscreenElement && !document.webkitFullscreenElement) {
       Promise.resolve(req.call(el)).then(scaleStage).catch(() => {});
     }
   }
+
+  function enter(startIdx) {
+    overlay.classList.add('active');
+    show(startIdx !== undefined ? startIdx : cur, 0);
+    document.body.style.overflow = 'hidden';
+    if (!isAudience) requestFs();
+  }
   window._slideEnter = enter;
+  window._slidePresentShow = show;
 
   function exit() {
     overlay.classList.remove('active');
@@ -243,6 +252,12 @@ function initPresent() {
   if (btn) btn.addEventListener('click', () => enter());
 
   overlay.addEventListener('click', (e) => {
+    if (isAudience) {
+      requestFs();
+      const hint = overlay.querySelector('.audience-hint');
+      if (hint) hint.remove();
+      return;
+    }
     if (e.clientX / window.innerWidth < 0.5) goPrev();
     else goNext();
   });
@@ -250,6 +265,7 @@ function initPresent() {
   document.addEventListener('keydown', (e) => {
     if (!overlay.classList.contains('active')) return;
     if (e.key === 'Escape') exit();
+    if (isAudience) return;
     if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') { e.preventDefault(); goNext(); }
     if (e.key === 'ArrowLeft'  || e.key === 'PageUp') { e.preventDefault(); goPrev(); }
   });
@@ -271,6 +287,42 @@ function initPresent() {
       progress.classList.toggle('visible', e.clientY > window.innerHeight - 60);
     }
   });
+
+  /* ── Audience follower (opened by presenter view) ── */
+  if (isAudience) {
+    document.body.classList.add('role-audience');
+    const hint = document.createElement('div');
+    hint.className = 'audience-hint';
+    hint.textContent = '點擊進入全螢幕';
+    overlay.appendChild(hint);
+    enter(0);
+    if (channel) {
+      channel.addEventListener('message', (ev) => {
+        const d = ev.data || {};
+        if (d.type === 'goto') show(d.cur, d.step);
+        else if (d.type === 'exit') { try { window.close(); } catch (err) {} }
+        else if (d.type === 'pointer' && cursor) {
+          if (d.hide) { cursor.classList.add('hidden'); return; }
+          const rect = stage.getBoundingClientRect();
+          cursor.style.left = (rect.left + d.x * rect.width) + 'px';
+          cursor.style.top  = (rect.top + d.y * rect.height) + 'px';
+          cursor.classList.remove('hidden');
+        }
+        else if (d.type === 'pie') {
+          const segs = stage.querySelectorAll('.pie-segment');
+          if (!segs.length) return;
+          if (d.idx >= 0 && segs[d.idx]) segs[d.idx].dispatchEvent(new MouseEvent('mouseenter'));
+          else segs[0].dispatchEvent(new MouseEvent('mouseleave'));
+        }
+        else if (d.type === 'scroll') {
+          const el = stage.querySelectorAll('.browser-body--scroll')[d.i];
+          if (!el) return;
+          el.scrollTop = d.ratio * (el.scrollHeight - el.clientHeight);
+        }
+      });
+      channel.postMessage({ type: 'ready' });
+    }
+  }
 }
 
 /* ── View toggle (list / grid) ─────────────────── */
@@ -300,5 +352,223 @@ function initViewToggle() {
       if (!document.body.classList.contains('view-grid')) return;
       if (window._slideEnter) window._slideEnter(i);
     });
+  });
+}
+
+/* ── Presenter view (簡報者檢視) ─────────────────── */
+
+function initPresenter() {
+  if (new URLSearchParams(location.search).get('role') === 'audience') return;
+
+  const header     = document.querySelector('.viewer-header');
+  const presentBtn = document.getElementById('presentBtn');
+  const slides     = Array.from(document.querySelectorAll('.slide-wrap .slide'));
+  if (!header || !slides.length) return;
+
+  /* inject trigger button next to 簡報模式 */
+  const btn = document.createElement('button');
+  btn.className = 'present-btn presenter-btn';
+  btn.id = 'presenterBtn';
+  btn.innerHTML = '<i data-lucide="monitor-play"></i> 簡報者模式';
+  if (presentBtn && presentBtn.nextSibling) header.insertBefore(btn, presentBtn.nextSibling);
+  else header.appendChild(btn);
+
+  /* inject presenter overlay */
+  const overlay = document.createElement('div');
+  overlay.className = 'presenter-overlay';
+  overlay.id = 'presenterOverlay';
+  overlay.innerHTML =
+    '<div class="presenter-bar">' +
+      '<div class="presenter-timer" id="presenterTimer">00:00</div>' +
+      '<div class="presenter-counter" id="presenterCounter">1 / ' + slides.length + '</div>' +
+    '</div>' +
+    '<div class="presenter-main">' +
+      '<div class="presenter-pane presenter-current">' +
+        '<span class="presenter-label">目前</span>' +
+        '<div class="presenter-frame presenter-frame--cur">' +
+          '<div class="presenter-stage" id="presenterCurStage"></div>' +
+          '<div class="presenter-cursor hidden" id="presenterCursor"></div>' +
+        '</div>' +
+      '</div>' +
+      '<div class="presenter-pane presenter-next">' +
+        '<span class="presenter-label">接下來</span>' +
+        '<div class="presenter-frame presenter-frame--next"><div class="presenter-stage" id="presenterNextStage"></div></div>' +
+      '</div>' +
+    '</div>' +
+    '<div class="presenter-controls">' +
+      '<button class="present-btn" id="presenterPrev"><i data-lucide="chevron-left"></i> 上一頁</button>' +
+      '<button class="present-btn" id="presenterNext">下一頁 <i data-lucide="chevron-right"></i></button>' +
+      '<button class="present-btn presenter-ctrl-alt" id="presenterPause"><i data-lucide="pause"></i> 暫停</button>' +
+      '<button class="present-btn presenter-ctrl-alt" id="presenterReset"><i data-lucide="rotate-ccw"></i> 重設</button>' +
+      '<button class="present-btn presenter-ctrl-alt" id="presenterExit"><i data-lucide="x"></i> 結束</button>' +
+    '</div>';
+  document.body.appendChild(overlay);
+  if (window.lucide) lucide.createIcons();
+
+  const curStage  = overlay.querySelector('#presenterCurStage');
+  const nextStage = overlay.querySelector('#presenterNextStage');
+  const counterEl = overlay.querySelector('#presenterCounter');
+  const timerEl   = overlay.querySelector('#presenterTimer');
+  const pauseBtn  = overlay.querySelector('#presenterPause');
+  const curFrame  = curStage.parentElement;
+  const cursor    = overlay.querySelector('#presenterCursor');
+
+  const channel = ('BroadcastChannel' in window)
+    ? new BroadcastChannel('slide-sync:' + location.pathname) : null;
+  let audienceWin = null;
+
+  let cur = 0, step = 0;
+  let timerId = null, elapsed = 0, paused = false;
+
+  function stepItems(node) {
+    const list = Array.from(node.querySelectorAll('.list-item'));
+    if (list.length) return list;
+    return Array.from(node.querySelectorAll('.card'));
+  }
+  function applyStepTo(node, s) {
+    stepItems(node).forEach((item, idx) => {
+      if (idx > s)        item.style.opacity = '0';
+      else if (idx === s) item.style.opacity = '1';
+      else                item.style.opacity = '0.2';
+    });
+  }
+  function scalePane(stage) {
+    const frame = stage.parentElement;
+    const w = frame.clientWidth, h = frame.clientHeight;
+    if (!w || !h) return;
+    stage.style.zoom = Math.min(w / 1920, h / 1080);
+  }
+  function fillStage(stage, idx, s) {
+    stage.innerHTML = '';
+    if (idx < 0 || idx >= slides.length) {
+      stage.innerHTML = '<div class="presenter-end">結束</div>';
+      scalePane(stage);
+      return;
+    }
+    stage.appendChild(slides[idx].cloneNode(true));
+    if (window.lucide) lucide.createIcons({ node: stage });
+    initPieCharts(stage);
+    applyStepTo(stage, s);
+    scalePane(stage);
+  }
+  function broadcast() {
+    if (channel) channel.postMessage({ type: 'goto', cur: cur, step: step });
+  }
+  function wirePieSync() {
+    if (!channel) return;
+    curStage.querySelectorAll('.pie-segment').forEach((seg, i) => {
+      seg.addEventListener('mouseenter', () => channel.postMessage({ type: 'pie', idx: i }));
+      seg.addEventListener('mouseleave', () => channel.postMessage({ type: 'pie', idx: -1 }));
+    });
+  }
+  function wireScrollSync() {
+    if (!channel) return;
+    curStage.querySelectorAll('.browser-body--scroll').forEach((el, i) => {
+      el.addEventListener('scroll', () => {
+        const max = el.scrollHeight - el.clientHeight;
+        channel.postMessage({ type: 'scroll', i: i, ratio: max > 0 ? el.scrollTop / max : 0 });
+      });
+    });
+  }
+  function render() {
+    fillStage(curStage, cur, step);
+    fillStage(nextStage, cur + 1, 0);
+    wirePieSync();
+    wireScrollSync();
+    counterEl.textContent = (cur + 1) + ' / ' + slides.length;
+    broadcast();
+  }
+  function goNext() {
+    const n = stepItems(curStage).length;
+    if (n > 0 && step < n - 1) { step++; applyStepTo(curStage, step); broadcast(); }
+    else if (cur < slides.length - 1) { cur++; step = 0; render(); }
+  }
+  function goPrev() {
+    if (step > 0) { step--; applyStepTo(curStage, step); broadcast(); }
+    else if (cur > 0) {
+      cur--;
+      const n = stepItems(slides[cur]).length;
+      step = n > 0 ? n - 1 : 0;
+      render();
+    }
+  }
+
+  function pad(n) { return String(n).padStart(2, '0'); }
+  function fmt(t) { return pad(Math.floor(t / 60)) + ':' + pad(t % 60); }
+  function tick() {
+    if (!paused) { elapsed++; timerEl.textContent = fmt(elapsed); }
+  }
+  function resetTimer() { elapsed = 0; timerEl.textContent = '00:00'; }
+
+  function open() {
+    audienceWin = window.open(location.pathname + '?role=audience' + location.hash, 'slide-audience');
+    overlay.classList.add('active');
+    document.body.style.overflow = 'hidden';
+    cur = 0; step = 0; paused = false;
+    resetTimer();
+    if (timerId) clearInterval(timerId);
+    timerId = setInterval(tick, 1000);
+    render();
+  }
+  function exit() {
+    overlay.classList.remove('active');
+    document.body.style.overflow = '';
+    if (timerId) { clearInterval(timerId); timerId = null; }
+    if (channel) channel.postMessage({ type: 'exit' });
+    if (audienceWin && !audienceWin.closed) { try { audienceWin.close(); } catch (err) {} }
+    audienceWin = null;
+  }
+
+  if (channel) {
+    channel.addEventListener('message', (ev) => {
+      if (ev.data && ev.data.type === 'ready' && overlay.classList.contains('active')) broadcast();
+    });
+  }
+
+  btn.addEventListener('click', open);
+  overlay.querySelector('#presenterNext').addEventListener('click', goNext);
+  overlay.querySelector('#presenterPrev').addEventListener('click', goPrev);
+  overlay.querySelector('#presenterExit').addEventListener('click', exit);
+  overlay.querySelector('#presenterReset').addEventListener('click', resetTimer);
+  pauseBtn.addEventListener('click', () => {
+    paused = !paused;
+    pauseBtn.innerHTML = paused ? '<i data-lucide="play"></i> 繼續' : '<i data-lucide="pause"></i> 暫停';
+    if (window.lucide) lucide.createIcons({ node: pauseBtn });
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (!overlay.classList.contains('active')) return;
+    if (e.key === 'Escape') { e.preventDefault(); exit(); }
+    else if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') { e.preventDefault(); goNext(); }
+    else if (e.key === 'ArrowLeft'  || e.key === 'PageUp') { e.preventDefault(); goPrev(); }
+    else if (e.key === 'r' || e.key === 'R') { resetTimer(); }
+  });
+
+  window.addEventListener('resize', () => {
+    if (overlay.classList.contains('active')) { scalePane(curStage); scalePane(nextStage); }
+  });
+
+  /* current slide: click zones (left/right = prev/next) + tracking cursor */
+  curFrame.addEventListener('click', (e) => {
+    const r = curFrame.getBoundingClientRect();
+    if ((e.clientX - r.left) / r.width < 0.5) goPrev();
+    else goNext();
+  });
+
+  let cursorTimer;
+  curFrame.addEventListener('mousemove', (e) => {
+    const r = curFrame.getBoundingClientRect();
+    const x = (e.clientX - r.left) / r.width;
+    const y = (e.clientY - r.top) / r.height;
+    cursor.style.left = (e.clientX - r.left) + 'px';
+    cursor.style.top  = (e.clientY - r.top) + 'px';
+    cursor.classList.remove('hidden');
+    clearTimeout(cursorTimer);
+    cursorTimer = setTimeout(() => cursor.classList.add('hidden'), 1500);
+    if (channel) channel.postMessage({ type: 'pointer', x: x, y: y });
+  });
+  curFrame.addEventListener('mouseleave', () => {
+    cursor.classList.add('hidden');
+    if (channel) channel.postMessage({ type: 'pointer', hide: true });
   });
 }
