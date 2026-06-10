@@ -1487,6 +1487,7 @@ body.view-grid .slide-group:hover .slide-wrap {
   flex: 0 0 auto;
   width: 150px; height: 84px;
   padding: 0;
+  text-align: left; /* reset <button> UA center so cloned slide keeps its own alignment */
   background: #000;
   border: none;
   border-radius: 4px;

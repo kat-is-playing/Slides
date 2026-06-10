@@ -482,8 +482,9 @@ function initPresenter() {
       filmstrip.appendChild(thumb);
       if (window.lucide) lucide.createIcons({ node: stage });
       initPieCharts(stage);
-      const s = stage.parentElement.clientWidth / 1920;
-      if (s) stage.style.zoom = s;
+      // thumb is CSS-fixed at 150px wide; scale by constant so it never
+      // silently fails when clientWidth reads 0 before layout settles
+      stage.style.transform = 'scale(' + (150 / 1920) + ')';
     });
   }
   function setActiveThumb() {
