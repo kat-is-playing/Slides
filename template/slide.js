@@ -380,36 +380,34 @@ function initPresenter() {
   overlay.innerHTML =
     '<div class="presenter-bar">' +
       '<div class="presenter-timer" id="presenterTimer">00:00</div>' +
-      '<div class="presenter-counter" id="presenterCounter">1 / ' + slides.length + '</div>' +
+      '<button class="presenter-iconbtn" id="presenterReset" title="重設計時"><i data-lucide="rotate-ccw"></i></button>' +
+      '<button class="presenter-iconbtn" id="presenterPause" title="暫停"><i data-lucide="pause"></i></button>' +
+      '<button class="presenter-iconbtn presenter-bar__exit" id="presenterExit" title="結束 (Esc)"><i data-lucide="x"></i></button>' +
     '</div>' +
     '<div class="presenter-main">' +
-      '<div class="presenter-pane presenter-current">' +
-        '<span class="presenter-label">目前</span>' +
+      '<div class="presenter-current">' +
         '<div class="presenter-frame presenter-frame--cur">' +
           '<div class="presenter-stage" id="presenterCurStage"></div>' +
           '<div class="presenter-cursor hidden" id="presenterCursor"></div>' +
         '</div>' +
       '</div>' +
-      '<div class="presenter-pane presenter-next">' +
-        '<span class="presenter-label">接下來</span>' +
-        '<div class="presenter-frame presenter-frame--next"><div class="presenter-stage" id="presenterNextStage"></div></div>' +
-      '</div>' +
+      '<div class="presenter-blank"></div>' +
     '</div>' +
-    '<div class="presenter-controls">' +
-      '<button class="present-btn" id="presenterPrev"><i data-lucide="chevron-left"></i> 上一頁</button>' +
-      '<button class="present-btn" id="presenterNext">下一頁 <i data-lucide="chevron-right"></i></button>' +
-      '<button class="present-btn presenter-ctrl-alt" id="presenterPause"><i data-lucide="pause"></i> 暫停</button>' +
-      '<button class="present-btn presenter-ctrl-alt" id="presenterReset"><i data-lucide="rotate-ccw"></i> 重設</button>' +
-      '<button class="present-btn presenter-ctrl-alt" id="presenterExit"><i data-lucide="x"></i> 結束</button>' +
-    '</div>';
+    '<div class="presenter-nav">' +
+      '<button class="presenter-iconbtn" id="presenterFirst" title="回到第一頁"><i data-lucide="rotate-ccw"></i></button>' +
+      '<button class="presenter-iconbtn" id="presenterPrev"><i data-lucide="chevron-left"></i></button>' +
+      '<span class="presenter-counter" id="presenterCounter">1 / ' + slides.length + '</span>' +
+      '<button class="presenter-iconbtn" id="presenterNext"><i data-lucide="chevron-right"></i></button>' +
+    '</div>' +
+    '<div class="presenter-filmstrip" id="presenterFilmstrip"></div>';
   document.body.appendChild(overlay);
   if (window.lucide) lucide.createIcons();
 
   const curStage  = overlay.querySelector('#presenterCurStage');
-  const nextStage = overlay.querySelector('#presenterNextStage');
   const counterEl = overlay.querySelector('#presenterCounter');
   const timerEl   = overlay.querySelector('#presenterTimer');
   const pauseBtn  = overlay.querySelector('#presenterPause');
+  const filmstrip = overlay.querySelector('#presenterFilmstrip');
   const curFrame  = curStage.parentElement;
   const cursor    = overlay.querySelector('#presenterCursor');
 
@@ -470,12 +468,40 @@ function initPresenter() {
       });
     });
   }
+  function buildFilmstrip() {
+    if (filmstrip.childElementCount) return;
+    slides.forEach((slide, i) => {
+      const thumb = document.createElement('button');
+      thumb.className = 'presenter-thumb';
+      thumb.dataset.idx = i;
+      const stage = document.createElement('div');
+      stage.className = 'presenter-stage';
+      stage.appendChild(slide.cloneNode(true));
+      thumb.appendChild(stage);
+      thumb.addEventListener('click', () => goTo(i));
+      filmstrip.appendChild(thumb);
+      if (window.lucide) lucide.createIcons({ node: stage });
+      initPieCharts(stage);
+      const s = stage.parentElement.clientWidth / 1920;
+      if (s) stage.style.zoom = s;
+    });
+  }
+  function setActiveThumb() {
+    Array.from(filmstrip.children).forEach((t, i) => t.classList.toggle('active', i === cur));
+    const active = filmstrip.children[cur];
+    if (active) active.scrollIntoView({ inline: 'center', block: 'nearest' });
+  }
+  function goTo(i) {
+    cur = Math.max(0, Math.min(i, slides.length - 1));
+    step = 0;
+    render();
+  }
   function render() {
     fillStage(curStage, cur, step);
-    fillStage(nextStage, cur + 1, 0);
     wirePieSync();
     wireScrollSync();
     counterEl.textContent = (cur + 1) + ' / ' + slides.length;
+    setActiveThumb();
     broadcast();
   }
   function goNext() {
@@ -504,6 +530,7 @@ function initPresenter() {
     audienceWin = window.open(location.pathname + '?role=audience' + location.hash, 'slide-audience');
     overlay.classList.add('active');
     document.body.style.overflow = 'hidden';
+    buildFilmstrip();
     cur = 0; step = 0; paused = false;
     resetTimer();
     if (timerId) clearInterval(timerId);
@@ -528,11 +555,13 @@ function initPresenter() {
   btn.addEventListener('click', open);
   overlay.querySelector('#presenterNext').addEventListener('click', goNext);
   overlay.querySelector('#presenterPrev').addEventListener('click', goPrev);
+  overlay.querySelector('#presenterFirst').addEventListener('click', () => goTo(0));
   overlay.querySelector('#presenterExit').addEventListener('click', exit);
   overlay.querySelector('#presenterReset').addEventListener('click', resetTimer);
   pauseBtn.addEventListener('click', () => {
     paused = !paused;
-    pauseBtn.innerHTML = paused ? '<i data-lucide="play"></i> 繼續' : '<i data-lucide="pause"></i> 暫停';
+    pauseBtn.innerHTML = paused ? '<i data-lucide="play"></i>' : '<i data-lucide="pause"></i>';
+    pauseBtn.title = paused ? '繼續' : '暫停';
     if (window.lucide) lucide.createIcons({ node: pauseBtn });
   });
 
