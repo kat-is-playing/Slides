@@ -49,14 +49,21 @@ function initPieCharts(root) {
   const NS = 'http://www.w3.org/2000/svg';
   root.querySelectorAll('.pie-chart').forEach(el => {
     const cs   = getComputedStyle(el);
-    const p1   = parseFloat(cs.getPropertyValue('--p1')) / 100;
-    const p2   = parseFloat(cs.getPropertyValue('--p2')) / 100;
     const dark = !!el.closest('.on-dark');
     const fills = dark
-      ? ['var(--chart-1-dark)', 'var(--chart-2-dark)', 'var(--chart-3-dark)']
-      : ['var(--chart-1)',      'var(--chart-2)',      'var(--chart-3)'];
+      ? ['var(--chart-1-dark)', 'var(--chart-2-dark)', 'var(--chart-3-dark)', 'var(--chart-4-dark)']
+      : ['var(--chart-1)',      'var(--chart-2)',      'var(--chart-3)',      'var(--chart-4)'];
 
-    const segs = [{ s: 0, e: p1 }, { s: p1, e: p2 }, { s: p2, e: 1 }];
+    // Read cumulative stops --p1, --p2, … until missing; auto-close at 100%.
+    const stops = [0];
+    for (let k = 1; k <= fills.length; k++) {
+      const v = parseFloat(cs.getPropertyValue('--p' + k));
+      if (isNaN(v)) break;
+      stops.push(v / 100);
+    }
+    if (stops[stops.length - 1] < 0.9999) stops.push(1);
+
+    const segs = stops.slice(0, -1).map((s, i) => ({ s, e: stops[i + 1] }));
     const svg = document.createElementNS(NS, 'svg');
     svg.setAttribute('viewBox', '0 0 600 600');
     svg.setAttribute('width', '600');
